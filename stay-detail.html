@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>담연재 - STAYFOLIO</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sub.css" />
+</head>
+<body class="sub">
+
+  <header id="header">
+    <div class="inner header-inner">
+      <h1 class="logo"><a href="index.html"><img src="images/logo.png" alt="STAY FOLIO" /></a></h1>
+      <nav class="gnb">
+        <ul>
+          <li><a href="find-stay.html">FIND STAY</a></li>
+          <li><a href="promotion.html">PROMOTION</a></li>
+          <li><a href="journal.html">JOURNAL</a></li>
+          <li><a href="pre-order.html">PRE-ORDER</a></li>
+        </ul>
+      </nav>
+      <div class="header-util">
+        <a href="search.html" class="util-btn" aria-label="검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+        </a>
+        <span class="util-divider"></span>
+        <a href="login.html" class="util-btn" aria-label="마이페이지">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a7 7 0 0 1 11 0"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="sub-section detail-wrap">
+    <div class="inner">
+      <p class="breadcrumb"><a href="index.html">HOME</a><span>›</span><a href="find-stay.html">FIND STAY</a><span>›</span>담연재</p>
+
+      <!-- 갤러리 -->
+      <div class="detail-gallery">
+        <img class="main" id="galleryMain" src="images/section_02_1.png" alt="담연재 메인" />
+        <img src="images/section_02_2.png" alt="" />
+        <img src="images/section_02_3.png" alt="" />
+      </div>
+
+      <div class="detail-body">
+        <!-- 정보 -->
+        <div class="detail-info">
+          <span class="badge">GYEONGJU</span>
+          <h1>담연재</h1>
+          <p class="loc">경상북도 경주시 · 한옥 독채</p>
+
+          <p class="lead">계절이 스며드는 집. 마당을 지나 문을 열면, 고요한 시간이 머뭅니다. 오래된 한옥의 결을 그대로 살리되, 머무는 사람의 하루에 맞춰 정성스레 다듬은 공간입니다. 처마 끝으로 떨어지는 빗소리와 마당의 바람을 온전히 누려보세요.</p>
+
+          <h4>편의 시설</h4>
+          <div class="amenities">
+            <span>프라이빗 마당</span>
+            <span>온돌 난방</span>
+            <span>주방 · 조리도구</span>
+            <span>웰컴 티 세트</span>
+            <span>무선 인터넷</span>
+            <span>전용 주차</span>
+            <span>욕실 어메니티</span>
+            <span>블루투스 스피커</span>
+          </div>
+
+          <h4>다른 사진</h4>
+          <div class="detail-thumbs">
+            <img src="images/section_02_1.png" alt="" />
+            <img src="images/section_02_2.png" alt="" />
+            <img src="images/section_02_3.png" alt="" />
+            <img src="images/section_02_4.png" alt="" />
+            <img src="images/section_02_5.png" alt="" />
+          </div>
+
+          <h4>위치 안내</h4>
+          <p class="lead" style="border:none;padding-top:0;margin-top:8px">경주 도심에서 차로 약 15분, 고즈넉한 한옥 마을 안에 자리합니다. 첨성대와 동궁과 월지 등 주요 명소가 가까워 도보와 자전거로 경주의 밤을 즐기기 좋습니다.</p>
+        </div>
+
+        <!-- 예약 박스 -->
+        <aside>
+          <div class="booking-box" id="bookingBox"
+               data-name="담연재" data-img="images/section_02_1.png"
+               data-loc="경상북도 경주시 · 한옥 독채" data-badge="GYEONGJU" data-price="320000">
+            <p class="price">₩ 320,000 <span>/ 1박</span></p>
+            <div class="booking-field">
+              <label>체크인 · 체크아웃</label>
+              <button type="button" class="date-trigger placeholder" id="dateTrigger">날짜를 선택하세요</button>
+              <div class="calendar" id="calendar"></div>
+            </div>
+            <div class="booking-field">
+              <label>인원</label>
+              <select id="guests">
+                <option>성인 2명</option>
+                <option>성인 1명</option>
+                <option>성인 3명</option>
+                <option>성인 4명</option>
+              </select>
+            </div>
+            <div class="price-summary" id="priceSummary" style="display:none"></div>
+            <button type="button" class="btn-primary" id="bookSubmit" disabled style="opacity:.5">예약하기</button>
+            <p class="booking-note">예약 확정 전에는 요금이 청구되지 않습니다.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 추천 스테이 -->
+  <section class="sub-section tint">
+    <div class="inner">
+      <div class="section-head"><h2 class="sec-title">함께 둘러보면 좋은 스테이</h2></div>
+      <ul class="stay-grid">
+        <li class="stay-card fx-reveal">
+          <img src="images/section_01_2.png" alt="" />
+          <span class="badge">GANGNEUNG</span>
+          <div class="card-info">
+            <h3>오션뷰 감성 스테이</h3>
+            <p class="price"><strong>₩ 320,000</strong> <span>/ 1박</span></p>
+            <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
+          </div>
+        </li>
+        <li class="stay-card fx-reveal">
+          <img src="images/section_01_3.png" alt="" />
+          <span class="badge">YANGYANG</span>
+          <div class="card-info">
+            <h3>숲 속의 작은 집</h3>
+            <p class="price"><strong>₩ 290,000</strong> <span>/ 1박</span></p>
+            <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
+          </div>
+        </li>
+        <li class="stay-card fx-reveal">
+          <img src="images/section_01_4.png" alt="" />
+          <span class="badge">SEOUL</span>
+          <div class="card-info">
+            <h3>도심 속 프라이빗 하우스</h3>
+            <p class="price"><strong>₩ 420,000</strong> <span>/ 1박</span></p>
+            <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="inner">
+      <div class="footer-top">
+        <ul class="footer-btns">
+          <li><a href="contact.html#partner">입점 문의</a></li>
+          <li><a href="contact.html#alliance">제휴 문의</a></li>
+          <li><a href="contact.html#b2b">B2B 구매</a></li>
+          <li><a href="contact.html#qna">1:1 문의</a></li>
+        </ul>
+        <p class="footer-logo"><img src="images/logo.png" alt="STAY FOLIO" /></p>
+      </div>
+      <div class="footer-info">
+        <p>상호명 : (주) 스테이폴리오 &nbsp;|&nbsp; 대표자 : 장인성 &nbsp;|&nbsp; 주소 : 서울특별시 종로구 자하문로9길 24, 2층(통인동) &nbsp;|&nbsp; 사업자등록번호 : 676-87-00055</p>
+        <p>통신판매업신고 : 제2015-서울종로-0499호 | 관광사업자등록 : 일반여행업 2018-000049호(종로구청) &nbsp;|&nbsp; 전화 : 1670-4123 &nbsp;|&nbsp; 전자우편 : help@stayfolio.com</p>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          <p>(주)스테이폴리오는 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.</p>
+          <p>&copy;STYAFOLIO. All rights reserved.</p>
+        </div>
+        <ul class="footer-sns">
+          <li><a href="#" aria-label="네이버"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h5.2l5.4 7.8V4H20v16h-5.2l-5.4-7.8V20H4z"/></svg></a></li>
+          <li><a href="#" aria-label="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="#" aria-label="브런치"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v18M8 10c5 0 8 1.5 8 5s-3 5-8 5M8 10c4 0 6-1.5 6-3.5S12 3 8 3"/></svg></a></li>
+          <li><a href="#" aria-label="페이스북"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a></li>
+          <li><a href="#" aria-label="유튜브"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.5v-7l6 3.5z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/sub.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

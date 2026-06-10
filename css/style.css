@@ -262,7 +262,7 @@ body {
 .hero-indicator {
   position: absolute;
   left: 60px;
-  bottom: 64px;
+  bottom: 110px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -307,6 +307,7 @@ body {
   display: flex;
   gap: 26px;
   overflow-x: auto;
+  overflow-y: hidden; /* 가로 스크롤만, 세로 스크롤바 생기지 않도록 */
   margin-right: calc(50% - 50vw);
   padding-right: calc(50vw - 50%);
   scrollbar-width: none;
@@ -410,19 +411,26 @@ body {
 /* ===================== SECTION 2 : EXPERIENCE ===================== */
 #experience {
   position: relative;
-  padding: 110px 0 100px;
+  padding: 160px 0 150px;
   color: #fff;
   overflow: hidden;
+  /* 배경 크로스페이드 중 뒤의 고정 히어로가 비치지 않도록 어두운 바탕 */
+  background: #201d1b;
 }
 .exp-bg {
   position: absolute;
   inset: 0;
+  /* 스크롤 내릴 때 배경이 화면에 고정(패럴럭스) */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  /* 배경은 항상 뿌옇게(블러) 유지 */
+  filter: blur(5px);
+  transition: opacity 0.5s, filter 0.5s;
 }
-.exp-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s;
+/* 전환 순간엔 조금 더 강하게 흐려졌다 기본 블러로 복귀 */
+.exp-bg.switching {
+  filter: blur(12px);
 }
 .exp-bg::after {
   content: "";
@@ -434,33 +442,37 @@ body {
 .exp-photo {
   position: absolute;
   /* 콘텐츠 상단(아이브로우)~하단(썸네일) 라인에 높이를 맞춤 */
-  top: 110px;
-  bottom: 100px;
+  top: 160px;
+  bottom: 150px;
   /* 1400px 컨테이너의 오른쪽 패딩 라인에 정렬 */
   right: max(60px, calc((100vw - 1400px) / 2 + 60px));
   width: min(700px, 44vw);
   z-index: 1;
-  overflow: hidden;
   border-radius: 20px;
+  /* 3D 회전을 위한 원근감 */
+  perspective: 1600px;
 }
 .exp-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 20px;
+  backface-visibility: hidden;
 }
-/* 우측 이미지는 배경(크로스페이드)과 다르게 와이프 효과로 전환 */
-@keyframes photoWipe {
+/* 우측 이미지는 배경(크로스페이드)과 다르게 3D 플립 효과로 전환 */
+@keyframes photoFlip {
   from {
-    clip-path: inset(0 100% 0 0);
-    transform: scale(1.06);
+    transform: rotateY(-90deg);
+    opacity: 0.2;
   }
   to {
-    clip-path: inset(0 0 0 0);
-    transform: scale(1);
+    transform: rotateY(0deg);
+    opacity: 1;
   }
 }
-.exp-photo img.wipe {
-  animation: photoWipe 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+.exp-photo img.flip {
+  transform-origin: center center;
+  animation: photoFlip 0.7s cubic-bezier(0.34, 0.85, 0.3, 1) forwards;
 }
 
 .exp-inner {
@@ -595,7 +607,7 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 18px rgba(120, 100, 85, 0.12);
-  transition: background 0.3s;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .icon-box img {
   width: 32px;
@@ -622,12 +634,25 @@ body {
 }
 
 /* 마우스 오버 시 : 아이콘 박스 브라운 + 흰 아이콘, 설명 문구 + 화살표 노출 */
-.dest-hover { display: none; margin-top: 24px; }
+/* 기본/호버 텍스트를 같은 위치에 겹쳐 부드럽게 크로스페이드 */
+.dest-default,
+.dest-hover {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 134px;
+  transform: translateY(-50%);
+  margin: 0;
+  transition: opacity 0.35s ease;
+}
+.dest-default em { margin-top: 0; }
+.dest-hover { opacity: 0; pointer-events: none; }
 .dest-hover p {
   font-size: 14px;
   line-height: 1.65;
   color: #55504b;
   white-space: nowrap;
+  font-weight: 200;
 }
 .dest-hover span {
   display: block;
@@ -635,14 +660,18 @@ body {
   font-size: 20px;
   color: #3d3833;
 }
-.dest-list li:hover .icon-box { background: #8a6f55; }
+.dest-list li:hover .icon-box {
+  background: #8a6f55;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(120, 100, 85, 0.22);
+}
 .dest-list li:hover .icon-box img { filter: brightness(0) invert(1); }
-.dest-list li:hover .dest-default { display: none; }
-.dest-list li:hover .dest-hover { display: block; }
+.dest-list li:hover .dest-default { opacity: 0; }
+.dest-list li:hover .dest-hover { opacity: 1; }
 
 /* ===================== SECTION 4 : STORIES ===================== */
 /* 섹션 세로 길이는 가운데 이미지(550x589) 실제 크기에 맞춤 */
-#stories { padding: 0; background: #fff; position: relative; }
+#stories { padding: 80px 0 0; background: #fff; position: relative; }
 
 .stories-inner {
   display: flex;
@@ -657,6 +686,27 @@ body {
 
 /* 이미지는 원본 크기 그대로 */
 .stories-visual { flex: 0 0 auto; font-size: 0; }
+.stories-frame { position: relative; display: inline-block; font-size: 0; }
+/* hover 연동 이미지 크로스페이드 슬라이드 */
+.stories-slide { transition: opacity 0.6s ease; }
+.stories-slide:not(.active) { opacity: 0; }
+/* 첫 슬라이드는 흐름에 두어 프레임 크기를 잡고, 나머지는 위에 겹침 */
+.stories-slide:first-of-type { position: relative; }
+.stories-slide:not(:first-of-type) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* section_04 이미지 위에 box 프레임 오버레이 */
+.stories-box {
+  position: absolute;
+  right: -8px;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
 .stories-visual img {
   display: block;
   width: auto;
@@ -665,7 +715,8 @@ body {
 
 .stories-list { flex: 1; }
 .stories-list li { border-bottom: 1px solid #e3e3e3; }
-.stories-list li:first-child { border-top: 1px solid #e3e3e3; }
+.stories-list li:first-child { border-top: 3px solid #e3e3e3; }
+.stories-list li:last-child { border-bottom: 3px solid #e3e3e3; }
 .stories-list a {
   display: flex;
   align-items: center;
@@ -761,10 +812,54 @@ body {
 .footer-sns a:hover { color: #fff; }
 .footer-sns svg { width: 19px; height: 19px; }
 
+/* ===================== 인터랙션 효과 (fx-*) ===================== */
+/* [fx-reveal] 스크롤 등장: 화면에 들어올 때 아래에서 떠오름 */
+.fx-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+.fx-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* [fx-exp-thumb] 익스피리언스 썸네일 호버: 살짝 떠오름 */
+.exp-thumbs li {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.exp-thumbs li:hover {
+  transform: translateY(-6px);
+}
+
+/* [fx-dest-tilt] 데스티네이션 틸트: 마우스 따라 기울임 (JS와 연동) */
+.dest-list li {
+  transition: transform 0.25s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* [fx-stories-active] 스토리 활성 강조: 호버 시 제목 밀림 + 색 강조 */
+.stories-list a {
+  transition: background 0.3s, padding-left 0.3s ease;
+}
+.stories-list li:hover a {
+  padding-left: 12px;
+}
+.stories-list p {
+  transition: color 0.3s ease;
+}
+.stories-list li:hover p {
+  color: #8a6f55;
+}
+
 /* ===================== 반응형 ===================== */
 @media (max-width: 1280px) {
   .gnb ul { gap: 40px; }
   .exp-photo { display: none; }
+  /* 모바일/태블릿은 고정 배경 깜빡임 방지를 위해 일반 스크롤로 */
+  .exp-bg { background-attachment: scroll; }
   .exp-desc, .exp-arrow { margin-left: 0; }
   .dest-inner { flex-direction: column; align-items: flex-start; }
   .stories-inner { flex-wrap: wrap; }
