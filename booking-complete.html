@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>예약 완료 - STAYFOLIO</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/sub.css" />
+</head>
+<body class="sub">
+
+  <header id="header">
+    <div class="inner header-inner">
+      <h1 class="logo"><a href="index.html"><img src="images/logo.png" alt="STAY FOLIO" /></a></h1>
+      <nav class="gnb">
+        <ul>
+          <li><a href="find-stay.html">FIND STAY</a></li>
+          <li><a href="promotion.html">PROMOTION</a></li>
+          <li><a href="journal.html">JOURNAL</a></li>
+          <li><a href="pre-order.html">PRE-ORDER</a></li>
+        </ul>
+      </nav>
+      <div class="header-util">
+        <a href="search.html" class="util-btn" aria-label="검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+        </a>
+        <span class="util-divider"></span>
+        <a href="login.html" class="util-btn" aria-label="마이페이지">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a7 7 0 0 1 11 0"></path></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="complete-wrap">
+    <div class="inner">
+      <div class="complete-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h1>예약이 완료되었습니다</h1>
+      <p class="lead">머무름의 순간을 예약해주셔서 감사합니다.<br />예약 내역은 입력하신 이메일로 발송되었습니다.</p>
+
+      <div class="complete-detail">
+        <div class="row"><span>예약 번호</span><span id="resNo">-</span></div>
+        <div class="row"><span>스테이</span><span id="cName">담연재</span></div>
+        <div class="row"><span>체크인</span><span id="cIn">-</span></div>
+        <div class="row"><span>체크아웃</span><span id="cOut">-</span></div>
+        <div class="row"><span>인원</span><span id="cGuests">-</span></div>
+        <div class="row"><span>결제 금액</span><span id="cTotal">-</span></div>
+      </div>
+
+      <div class="complete-actions">
+        <a href="index.html" class="btn-outline">홈으로</a>
+        <a href="find-stay.html" class="btn-fill">다른 스테이 보기</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/sub.js"></script>
+  <script>
+    (function () {
+      const q = new URLSearchParams(location.search);
+      const WON = (n) => '₩ ' + Number(n).toLocaleString('ko-KR');
+      const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+
+      // 예약번호 생성
+      const d = new Date();
+      const resNo = 'SF' + d.getFullYear() + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0')
+        + '-' + Math.floor(1000 + Math.random() * 9000);
+      set('resNo', resNo);
+
+      if (q.get('name')) set('cName', q.get('name'));
+      set('cIn', q.get('checkin') || '-');
+      set('cOut', q.get('checkout') || '-');
+      set('cGuests', q.get('guests') || '-');
+      set('cTotal', q.get('total') ? WON(q.get('total')) : '-');
+    })();
+  </script>
+</body>
+</html>

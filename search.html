@@ -35,25 +35,69 @@
   <section class="search-hero">
     <div class="inner">
       <h1>어디로 떠나고 싶나요?</h1>
-      <p>지역, 분위기, 스테이 이름으로 검색해보세요.</p>
-      <form class="search-form" data-demo>
-        <input type="text" placeholder="예) 제주 오션뷰, 한옥, 숲속 독채" />
-        <button type="submit" aria-label="검색">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
-        </button>
-      </form>
-      <p class="search-keywords">
-        인기 검색어
-        <a href="#">제주</a><a href="#">오션뷰</a><a href="#">한옥</a><a href="#">독채</a><a href="#">숲속</a><a href="#">미니멀</a>
-      </p>
+      <p>지역, 무드, 스테이 이름으로 한 번에 검색하세요.</p>
     </div>
   </section>
 
-  <section class="sub-section">
+  <section class="sub-section" style="padding-top:0">
     <div class="inner">
-      <p class="result-count">추천 스테이 <strong>6</strong>곳</p>
+      <!-- 통합 검색 패널: 검색바 + 분류 필터 -->
+      <div class="search-panel">
+        <form class="search-bar" onsubmit="return false">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+          <input type="text" placeholder="제주 오션뷰, 한옥, 숲속 독채…" />
+          <button type="submit" class="search-go">검색</button>
+        </form>
+
+        <div class="search-filters">
+        <div class="filter-group" data-group="region" data-multi="true">
+          <span class="glabel">지역</span>
+          <div class="chips">
+            <button type="button" class="chip" data-value="jeju">제주</button>
+            <button type="button" class="chip" data-value="gangneung">강릉</button>
+            <button type="button" class="chip" data-value="yangyang">양양</button>
+            <button type="button" class="chip" data-value="seoul">서울</button>
+            <button type="button" class="chip" data-value="namhae">남해</button>
+          </div>
+        </div>
+        <div class="filter-group" data-group="mood" data-multi="true">
+          <span class="glabel">무드</span>
+          <div class="chips">
+            <button type="button" class="chip" data-value="ocean">오션뷰</button>
+            <button type="button" class="chip" data-value="forest">숲 · 마운틴</button>
+            <button type="button" class="chip" data-value="city">시티</button>
+            <button type="button" class="chip" data-value="private">독채</button>
+            <button type="button" class="chip" data-value="minimal">미니멀</button>
+            <button type="button" class="chip" data-value="pool">풀빌라</button>
+            <button type="button" class="chip" data-value="pet">반려동물</button>
+          </div>
+        </div>
+        <div class="filter-group" data-group="price">
+          <span class="glabel">가격</span>
+          <div class="chips">
+            <button type="button" class="chip" data-value="u30">30만 이하</button>
+            <button type="button" class="chip" data-value="30-40">30~40만</button>
+            <button type="button" class="chip" data-value="40-50">40~50만</button>
+            <button type="button" class="chip" data-value="o50">50만 이상</button>
+          </div>
+        </div>
+        <div class="filter-group" data-group="guests">
+          <span class="glabel">인원</span>
+          <div class="chips">
+            <button type="button" class="chip" data-value="g12">1~2명</button>
+            <button type="button" class="chip" data-value="g34">3~4명</button>
+            <button type="button" class="chip" data-value="g5">5명 이상</button>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button type="button" class="filter-reset">↺ 필터 초기화</button>
+        </div>
+        </div>
+      </div>
+
+      <p class="result-count">검색 결과 <strong>6</strong>곳</p>
       <ul class="stay-grid">
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="jeju" data-mood="ocean private" data-price="380000" data-cap="4">
           <img src="images/section_01_1.png" alt="" />
           <span class="badge">JEJU</span>
           <div class="card-info">
@@ -62,7 +106,7 @@
             <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
           </div>
         </li>
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="gangneung" data-mood="ocean minimal" data-price="320000" data-cap="2">
           <img src="images/section_01_2.png" alt="" />
           <span class="badge">GANGNEUNG</span>
           <div class="card-info">
@@ -71,7 +115,7 @@
             <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
           </div>
         </li>
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="yangyang" data-mood="forest private" data-price="290000" data-cap="2">
           <img src="images/section_01_3.png" alt="" />
           <span class="badge">YANGYANG</span>
           <div class="card-info">
@@ -80,7 +124,7 @@
             <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
           </div>
         </li>
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="seoul" data-mood="city minimal" data-price="420000" data-cap="4">
           <img src="images/section_01_4.png" alt="" />
           <span class="badge">SEOUL</span>
           <div class="card-info">
@@ -89,7 +133,7 @@
             <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
           </div>
         </li>
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="jeju" data-mood="ocean private pool" data-price="500000" data-cap="6">
           <img src="images/section_01_5.png" alt="" />
           <span class="badge">JEJU</span>
           <div class="card-info">
@@ -98,7 +142,7 @@
             <a href="stay-detail.html" class="view-stay">VIEW STAY <em>→</em></a>
           </div>
         </li>
-        <li class="stay-card fx-reveal">
+        <li class="stay-card fx-reveal" data-region="namhae" data-mood="ocean pool pet" data-price="480000" data-cap="6">
           <img src="images/section_01_2.png" alt="" />
           <span class="badge">NAMHAE</span>
           <div class="card-info">
@@ -143,5 +187,6 @@
   </footer>
 
   <script src="js/sub.js"></script>
+  <script src="js/search-filter.js"></script>
 </body>
 </html>

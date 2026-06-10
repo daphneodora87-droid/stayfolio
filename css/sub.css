@@ -324,7 +324,7 @@
 .cal-day.start, .cal-day.end { background: #2c2723; color: #fff; }
 .cal-day.start { border-radius: 8px 0 0 8px; }
 .cal-day.end { border-radius: 0 8px 8px 0; }
-.cal-day.single { border-radius: 8px; }
+.cal-day.single { background: #2c2723; color: #fff; border-radius: 8px; }
 .price-summary {
   margin-top: 18px;
   padding-top: 18px;
@@ -489,6 +489,97 @@
   transition: background 0.25s;
 }
 .search-keywords a:hover { background: rgba(255,255,255,0.15); }
+
+/* ---------- 통합 검색 패널 (검색바 + 필터) ---------- */
+.search-panel {
+  position: relative;
+  z-index: 3;
+  margin-top: -66px;
+  margin-bottom: 44px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(120, 100, 85, 0.12);
+  padding: 10px 30px 24px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 6px 10px 12px;
+  border-bottom: 1px solid #f1ece7;
+}
+.search-bar .ico { width: 22px; height: 22px; color: #8a6f55; flex: none; }
+.search-bar input {
+  flex: 1;
+  border: none;
+  padding: 14px 0;
+  font-size: 17px;
+  color: #333;
+  background: none;
+}
+.search-bar input::placeholder { color: #b3aca5; }
+.search-bar input:focus { outline: none; }
+.search-bar .search-go {
+  flex: none;
+  padding: 13px 32px;
+  background: #2c2723;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.search-bar .search-go:hover { background: #8a6f55; }
+/* 패널 안에서는 필터 자체 테두리 제거 */
+.search-filters { }
+.filter-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid #f1ece7;
+}
+.filter-group:last-of-type { border-bottom: none; }
+.filter-group .glabel {
+  flex: 0 0 70px;
+  padding-top: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c2723;
+}
+.filter-group .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  padding: 9px 18px;
+  border: 1px solid #e0dbd5;
+  border-radius: 50px;
+  font-size: 14px;
+  color: #555;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.chip:hover { border-color: #8a6f55; color: #8a6f55; }
+.chip.active { background: #2c2723; border-color: #2c2723; color: #fff; }
+.filter-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+.filter-reset {
+  background: none;
+  border: none;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.filter-reset:hover { color: #8a6f55; }
 
 /* ---------- 로그인 ---------- */
 .auth-wrap {
