@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOGIN - STAYFOLIO</title>
+  <title>회원가입 - STAYFOLIO</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/sub.css" />
 </head>
@@ -35,42 +35,56 @@
   <section class="auth-wrap">
     <div class="auth-card">
       <p class="logo-mark"><img src="images/logo.png" alt="STAY FOLIO" style="filter:brightness(0)" /></p>
-      <h1>로그인</h1>
-      <p class="sub">머무름의 기록을 이어가세요.</p>
+      <h1>회원가입</h1>
+      <p class="sub">머무름의 첫 기록을 시작하세요.</p>
 
       <form data-demo>
+        <div class="auth-field">
+          <label>이름</label>
+          <input type="text" placeholder="이름을 입력하세요" />
+        </div>
         <div class="auth-field">
           <label>이메일</label>
           <input type="email" placeholder="email@example.com" />
         </div>
         <div class="auth-field">
           <label>비밀번호</label>
-          <input type="password" placeholder="비밀번호를 입력하세요" />
+          <input type="password" placeholder="8자 이상 입력하세요" />
         </div>
-        <div class="auth-row">
-          <label style="display:flex;align-items:center;gap:7px;cursor:pointer"><input type="checkbox" style="width:auto" /> 로그인 상태 유지</label>
-          <a href="find-account.html">아이디/비밀번호 찾기</a>
+        <div class="auth-field">
+          <label>비밀번호 확인</label>
+          <input type="password" placeholder="비밀번호를 다시 입력하세요" />
         </div>
-        <button type="submit" class="btn-primary" style="margin-top:26px">로그인</button>
+        <div class="auth-field">
+          <label>휴대폰 번호 <span style="color:#bbb;font-weight:400">(선택)</span></label>
+          <input type="tel" placeholder="'-' 없이 숫자만 입력" />
+        </div>
+
+        <label class="auth-agree">
+          <input type="checkbox" />
+          <span><a href="#">이용약관</a> 및 <a href="#">개인정보 처리방침</a>에 동의합니다.</span>
+        </label>
+
+        <button type="submit" class="btn-primary" style="margin-top:24px">가입하기</button>
       </form>
 
       <div class="auth-divider">또는</div>
       <div class="social-login">
         <button type="button" class="social kakao">
           <span class="social-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.5 3 2 6.58 2 11c0 2.82 1.88 5.3 4.72 6.71-.21.77-.76 2.78-.87 3.21-.14.54.2.53.41.39.17-.11 2.66-1.81 3.74-2.55.65.09 1.31.14 2 .14 5.5 0 10-3.58 10-8S17.5 3 12 3z"/></svg></span>
-          <span class="social-label">카카오로 계속하기</span>
+          <span class="social-label">카카오로 시작하기</span>
         </button>
         <button type="button" class="social naver">
           <span class="social-ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.6 4v8.4L8.6 4H4v16h4.4v-8.4l7 8.4H20V4z"/></svg></span>
-          <span class="social-label">네이버로 계속하기</span>
+          <span class="social-label">네이버로 시작하기</span>
         </button>
         <button type="button" class="social google">
           <span class="social-ico"><svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 4.1 29.3 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22 22-9.8 22-22c0-1.5-.2-2.6-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 16 19 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 4.1 29.3 2 24 2 15.6 2 8.3 6.8 6.3 14.7z"/><path fill="#4CAF50" d="M24 46c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 36.9 26.7 38 24 38c-5.2 0-9.6-3.3-11.2-8l-6.5 5C8.3 41.2 15.6 46 24 46z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.6l6.2 5.2C40.9 36.4 46 31 46 24c0-1.5-.2-2.6-.4-3.5z"/></svg></span>
-          <span class="social-label">Google로 계속하기</span>
+          <span class="social-label">Google로 시작하기</span>
         </button>
       </div>
 
-      <p class="auth-foot">아직 회원이 아니신가요? <a href="signup.html">회원가입</a></p>
+      <p class="auth-foot">이미 회원이신가요? <a href="login.html">로그인</a></p>
     </div>
   </section>
 

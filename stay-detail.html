@@ -90,12 +90,30 @@
             </div>
             <div class="booking-field">
               <label>인원</label>
-              <select id="guests">
-                <option>성인 2명</option>
-                <option>성인 1명</option>
-                <option>성인 3명</option>
-                <option>성인 4명</option>
-              </select>
+              <div class="guest-stepper" id="guestStepper" data-adult="2" data-child="0">
+                <div class="guest-row">
+                  <div class="guest-label">
+                    <span class="g-title">성인</span>
+                    <span class="g-desc">만 13세 이상</span>
+                  </div>
+                  <div class="stepper">
+                    <button type="button" class="step-btn" data-act="dec" data-target="adult" aria-label="성인 줄이기">−</button>
+                    <span class="step-val" id="adultVal">2</span>
+                    <button type="button" class="step-btn" data-act="inc" data-target="adult" aria-label="성인 늘리기">+</button>
+                  </div>
+                </div>
+                <div class="guest-row">
+                  <div class="guest-label">
+                    <span class="g-title">아동</span>
+                    <span class="g-desc">만 12세 이하</span>
+                  </div>
+                  <div class="stepper">
+                    <button type="button" class="step-btn" data-act="dec" data-target="child" aria-label="아동 줄이기">−</button>
+                    <span class="step-val" id="childVal">0</span>
+                    <button type="button" class="step-btn" data-act="inc" data-target="child" aria-label="아동 늘리기">+</button>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="price-summary" id="priceSummary" style="display:none"></div>
             <button type="button" class="btn-primary" id="bookSubmit" disabled style="opacity:.5">예약하기</button>

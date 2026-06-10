@@ -14,8 +14,49 @@
   const trigger = document.getElementById('dateTrigger');
   const calEl = document.getElementById('calendar');
   const summaryEl = document.getElementById('priceSummary');
-  const guestsSel = document.getElementById('guests');
+  const stepper = document.getElementById('guestStepper');
   const submitBtn = document.getElementById('bookSubmit');
+
+  // 인원 스테퍼 (성인 / 아동)
+  const GUEST_MIN = { adult: 1, child: 0 };
+  const GUEST_MAX = { adult: 10, child: 6 };
+  const guests = {
+    adult: parseInt(stepper?.dataset.adult || '2', 10),
+    child: parseInt(stepper?.dataset.child || '0', 10),
+  };
+  const valEls = {
+    adult: document.getElementById('adultVal'),
+    child: document.getElementById('childVal'),
+  };
+
+  function guestsLabel() {
+    let s = `성인 ${guests.adult}명`;
+    if (guests.child > 0) s += ` · 아동 ${guests.child}명`;
+    return s;
+  }
+
+  function syncStepper() {
+    ['adult', 'child'].forEach((k) => {
+      if (valEls[k]) valEls[k].textContent = guests[k];
+      stepper.querySelectorAll(`.step-btn[data-target="${k}"]`).forEach((b) => {
+        const act = b.dataset.act;
+        b.disabled = act === 'dec' ? guests[k] <= GUEST_MIN[k] : guests[k] >= GUEST_MAX[k];
+      });
+    });
+  }
+
+  if (stepper) {
+    stepper.querySelectorAll('.step-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const k = btn.dataset.target;
+        const delta = btn.dataset.act === 'inc' ? 1 : -1;
+        const next = Math.min(GUEST_MAX[k], Math.max(GUEST_MIN[k], guests[k] + delta));
+        guests[k] = next;
+        syncStepper();
+      });
+    });
+    syncStepper();
+  }
 
   const WON = (n) => '₩ ' + n.toLocaleString('ko-KR');
   const fmt = (d) => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
@@ -137,7 +178,7 @@
       checkin: fmt(checkIn),
       checkout: fmt(checkOut),
       nights: String(nights()),
-      guests: guestsSel ? guestsSel.value : '성인 2명',
+      guests: guestsLabel(),
     });
     location.href = 'booking.html?' + params.toString();
   });

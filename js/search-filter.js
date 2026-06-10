@@ -8,6 +8,15 @@
   const cards = document.querySelectorAll('.stay-grid .stay-card');
   const countEl = document.querySelector('.result-count strong');
   const filterCountEl = document.getElementById('filterCount');
+  const searchInput = panel.closest('.search-panel')?.querySelector('.search-bar input');
+  let keyword = '';
+
+  // 카드별 검색 대상 텍스트(이름 + 지역 뱃지 + 무드) 미리 추출
+  cards.forEach((card) => {
+    const name = card.querySelector('h3')?.textContent || '';
+    const badge = card.querySelector('.badge')?.textContent || '';
+    card.dataset.search = (name + ' ' + badge + ' ' + (card.dataset.region || '') + ' ' + (card.dataset.mood || '')).toLowerCase();
+  });
 
   // 필터 토글(펼침/접힘)
   const toggleBtn = document.getElementById('filterToggle');
@@ -50,6 +59,7 @@
       const cc = Number(card.dataset.cap || 0);
 
       let ok = true;
+      if (keyword && !(card.dataset.search || '').includes(keyword)) ok = false;
       if (region.length && !region.includes(cr)) ok = false;
       if (mood.length && !mood.some((m) => cm.includes(m))) ok = false;
       if (price && !priceInRange(cp, price)) ok = false;
@@ -82,10 +92,18 @@
     });
   });
 
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      keyword = searchInput.value.trim().toLowerCase();
+      apply();
+    });
+  }
+
   const reset = panel.querySelector('.filter-reset');
   if (reset) {
     reset.addEventListener('click', () => {
       panel.querySelectorAll('.chip.active').forEach((c) => c.classList.remove('active'));
+      if (searchInput) { searchInput.value = ''; keyword = ''; }
       apply();
     });
   }

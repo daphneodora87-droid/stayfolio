@@ -41,45 +41,101 @@
     </div>
   </section>
 
-  <section class="sub-section">
+  <section class="sub-section preorder-section">
     <div class="inner">
       <p class="breadcrumb"><a href="index.html">HOME</a><span>›</span>PRE-ORDER</p>
 
-      <div class="preorder-grid">
-        <article class="preorder-card fx-reveal" onclick="location.href='stay-detail.html'" style="cursor:pointer">
-          <img src="images/section_01_5.png" alt="" />
-          <div class="body">
-            <span class="status">OPEN SOON</span>
-            <h3>고요, 남해 언덕 위 독채</h3>
-            <p>바다를 내려다보는 단 한 채의 집. 6월 사전 예약을 시작합니다.</p>
-            <p class="open-date">예약 오픈 : 2026.06.20 11:00</p>
+      <!-- 에디토리얼 헤더 -->
+      <header class="po-head">
+        <div class="po-head-left">
+          <p class="po-eyebrow">OPENING 2026</p>
+          <h2 class="po-head-title">곧 문을 여는<br />스테이 라인업</h2>
+        </div>
+        <div class="po-head-right">
+          <p class="po-head-lead">정식 오픈 전, 가장 먼저 예약할 수 있는 한정된 기회입니다. 알림을 신청하면 예약이 열리는 순간 가장 먼저 안내해 드려요.</p>
+          <ul class="po-legend">
+            <li><span class="po-dot open"></span>예약 임박</li>
+            <li><span class="po-dot coming"></span>공개 예정</li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- 피처드 카드 -->
+      <article class="po-featured fx-reveal" data-open="2026-06-20T11:00" data-href="stay-detail.html">
+        <div class="po-featured-media">
+          <img src="images/section_01_5.png" alt="고요, 남해 언덕 위 독채" />
+          <span class="po-index">01</span>
+          <span class="po-status open">OPEN SOON</span>
+        </div>
+        <div class="po-featured-body">
+          <span class="po-dday" data-dday>D-DAY</span>
+          <h3>고요, 남해 언덕 위 독채</h3>
+          <p class="po-desc">바다를 정면으로 내려다보는 단 한 채의 집. 군더더기를 덜어낸 고요한 한옥의 결 위로, 남해의 바람과 빛이 하루를 천천히 채웁니다. 6월, 가장 먼저 머무를 수 있는 사전 예약을 시작합니다.</p>
+          <ul class="po-spec">
+            <li><span>위치</span>경상남도 남해 · 독채</li>
+            <li><span>구성</span>침실 2 · 최대 4인</li>
+            <li><span>수량</span>한정 1채</li>
+          </ul>
+          <div class="po-foot">
+            <div class="po-open">
+              <span class="po-open-label">예약 오픈</span>
+              <strong>2026.06.20 (토) 11:00</strong>
+            </div>
+            <button type="button" class="po-notify">알림 신청 <em>→</em></button>
           </div>
-        </article>
-        <article class="preorder-card fx-reveal" onclick="location.href='stay-detail.html'" style="cursor:pointer">
-          <img src="images/section_02_2.png" alt="" />
-          <div class="body">
-            <span class="status">OPEN SOON</span>
+        </div>
+      </article>
+
+      <!-- 라인업 그리드 -->
+      <div class="po-grid">
+        <article class="po-card fx-reveal" data-open="2026-06-25T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_02_2.png" alt="웨이브 하우스 강릉" />
+            <span class="po-index">02</span>
+            <span class="po-status open">OPEN SOON</span>
+          </div>
+          <div class="po-card-body">
+            <span class="po-dday" data-dday>D-DAY</span>
             <h3>웨이브 하우스 강릉</h3>
-            <p>파도 소리에 잠드는 오션 프론트 스테이. 한정 수량 사전 예약.</p>
-            <p class="open-date">예약 오픈 : 2026.06.25 11:00</p>
+            <p>파도 소리에 잠드는 오션 프론트 스테이. 한정 수량으로 사전 예약을 받습니다.</p>
+            <div class="po-foot">
+              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.06.25 11:00</strong></div>
+              <button type="button" class="po-notify">알림 <em>→</em></button>
+            </div>
           </div>
         </article>
-        <article class="preorder-card fx-reveal" onclick="location.href='stay-detail.html'" style="cursor:pointer">
-          <img src="images/section_02_3.png" alt="" />
-          <div class="body">
-            <span class="status">COMING</span>
+
+        <article class="po-card fx-reveal" data-open="2026-07-02T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_02_3.png" alt="포레스트 캐빈 양양" />
+            <span class="po-index">03</span>
+            <span class="po-status coming">COMING</span>
+          </div>
+          <div class="po-card-body">
+            <span class="po-dday" data-dday>D-DAY</span>
             <h3>포레스트 캐빈 양양</h3>
-            <p>창을 열면 나무 향이 먼저 반기는 숲속의 작은 집.</p>
-            <p class="open-date">예약 오픈 : 2026.07.02 11:00</p>
+            <p>창을 열면 나무 향이 먼저 반기는 숲속의 작은 집. 곧 라인업에 합류합니다.</p>
+            <div class="po-foot">
+              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.07.02 11:00</strong></div>
+              <button type="button" class="po-notify">알림 <em>→</em></button>
+            </div>
           </div>
         </article>
-        <article class="preorder-card fx-reveal" onclick="location.href='stay-detail.html'" style="cursor:pointer">
-          <img src="images/section_02_4.png" alt="" />
-          <div class="body">
-            <span class="status">COMING</span>
+
+        <article class="po-card fx-reveal" data-open="2026-07-10T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_02_4.png" alt="모노 스테이 서울" />
+            <span class="po-index">04</span>
+            <span class="po-status coming">COMING</span>
+          </div>
+          <div class="po-card-body">
+            <span class="po-dday" data-dday>D-DAY</span>
             <h3>모노 스테이 서울</h3>
-            <p>비움으로 완성된 도심 속 미니멀 하우스. 곧 공개됩니다.</p>
-            <p class="open-date">예약 오픈 : 2026.07.10 11:00</p>
+            <p>비움으로 완성된 도심 속 미니멀 하우스. 디테일을 다듬어 곧 공개합니다.</p>
+            <div class="po-foot">
+              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.07.10 11:00</strong></div>
+              <button type="button" class="po-notify">알림 <em>→</em></button>
+            </div>
           </div>
         </article>
       </div>
@@ -118,5 +174,6 @@
   </footer>
 
   <script src="js/sub.js"></script>
+  <script src="js/preorder.js"></script>
 </body>
 </html>

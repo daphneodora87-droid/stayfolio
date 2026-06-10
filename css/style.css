@@ -754,6 +754,7 @@ body {
   padding: 76px 0 90px;
   color: #999;
   position: relative;
+  font-weight: 200; /* 기본 400 → -200 */
 }
 .footer-top {
   display: flex;
