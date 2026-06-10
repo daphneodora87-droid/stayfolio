@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STAYFOLIO - 머무는 순간, 기억이 되는 공간</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header id="header">
+    <div class="inner header-inner">
+      <h1 class="logo">
+        <a href="#"><img src="images/logo.png" alt="STAY FOLIO" /></a>
+      </h1>
+      <nav class="gnb">
+        <ul>
+          <li><a href="#curated">FIND STAY</a></li>
+          <li><a href="#experience">PROMOTION</a></li>
+          <li><a href="#stories">JOURNAL</a></li>
+          <li><a href="#destinations">PRE-ORDER</a></li>
+        </ul>
+      </nav>
+      <div class="header-util">
+        <button type="button" aria-label="검색">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <span class="util-divider"></span>
+        <button type="button" aria-label="마이페이지">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="10" r="3"></circle>
+            <path d="M6.5 19a7 7 0 0 1 11 0"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-media">
+      <video class="hero-slide active" src="images/hero_01.mp4" autoplay muted loop playsinline poster="images/hero_01.png"></video>
+      <img class="hero-slide" src="images/hero_02.png" alt="" />
+      <img class="hero-slide" src="images/hero_03.png" alt="" />
+    </div>
+    <div class="inner hero-inner">
+      <div class="hero-text">
+        <h2><span class="thin">머무는 순간,</span><br />기억이 되는 공간.</h2>
+        <p>자연, 건축, 그리고 쉼이 머무는 장소<br />스테이폴리오가 큐레이션 합니다.</p>
+      </div>
+      <div class="hero-indicator">
+        <span class="current">01</span>
+        <span class="bar"><i></i></span>
+        <span class="total">03</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 1 : CURATED STAYS ========== -->
+  <section id="curated">
+    <div class="inner">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow"><span></span>Curated stays</p>
+          <h2 class="sec-title">이번 시즌, <strong>추천 스테이</strong></h2>
+        </div>
+        <a href="#" class="more-link">more <em>&#10230;</em></a>
+      </div>
+
+      <ul class="stay-list">
+        <li class="stay-card" data-region="jeju">
+          <img src="images/section_01_1.png" alt="제주의 바람을 담은 독채" />
+          <span class="badge">JEJU</span>
+          <div class="card-info">
+            <h3>제주의 바람을 담은 독채</h3>
+            <p class="price"><strong>&#8361; 380,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="gangneung">
+          <img src="images/section_01_2.png" alt="오션뷰 감성 스테이" />
+          <span class="badge">GANGNEUNG</span>
+          <div class="card-info">
+            <h3>오션뷰 감성 스테이</h3>
+            <p class="price"><strong>&#8361; 320,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="yangyang">
+          <img src="images/section_01_3.png" alt="숲 속의 작은 집" />
+          <span class="badge">YANGYANG</span>
+          <div class="card-info">
+            <h3>숲 속의 작은 집</h3>
+            <p class="price"><strong>&#8361; 290,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="seoul">
+          <img src="images/section_01_4.png" alt="도심 속 프라이빗 하우스" />
+          <span class="badge">SEOUL</span>
+          <div class="card-info">
+            <h3>도심 속 프라이빗 하우스</h3>
+            <p class="price"><strong>&#8361; 420,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="jeju">
+          <img src="images/section_01_5.png" alt="느리고도 낭만적인" />
+          <span class="badge">JEJU</span>
+          <div class="card-info">
+            <h3>느리고도 낭만적인</h3>
+            <p class="price"><strong>&#8361; 500,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="gyeongju">
+          <img src="images/section_01_1.png" alt="담안" />
+          <span class="badge">GYEONGJU</span>
+          <div class="card-info">
+            <h3>마당을 품은 독채, 담안</h3>
+            <p class="price"><strong>&#8361; 450,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="gyeongju">
+          <img src="images/section_01_3.png" alt="유온" />
+          <span class="badge">GYEONGJU</span>
+          <div class="card-info">
+            <h3>숲과 호수 곁의 쉼, 유온</h3>
+            <p class="price"><strong>&#8361; 330,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="gyeongju">
+          <img src="images/section_01_4.png" alt="경주옥" />
+          <span class="badge">GYEONGJU</span>
+          <div class="card-info">
+            <h3>주옥같은 하루, 경주옥</h3>
+            <p class="price"><strong>&#8361; 390,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="busan">
+          <img src="images/section_01_2.png" alt="스테이 바누" />
+          <span class="badge">BUSAN</span>
+          <div class="card-info">
+            <h3>서면의 동양적 미감, 스테이 바누</h3>
+            <p class="price"><strong>&#8361; 180,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="namhae">
+          <img src="images/section_01_5.png" alt="이제 남해" />
+          <span class="badge">NAMHAE</span>
+          <div class="card-info">
+            <h3>편백 스파의 위로, 이제 남해</h3>
+            <p class="price"><strong>&#8361; 550,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+        <li class="stay-card" data-region="namhae">
+          <img src="images/section_01_2.png" alt="남해별장" />
+          <span class="badge">NAMHAE</span>
+          <div class="card-info">
+            <h3>사계절 야외 풀, 남해별장</h3>
+            <p class="price"><strong>&#8361; 480,000</strong> <span>/ 1박</span></p>
+            <a href="#" class="view-stay">VIEW STAY <em>&#10230;</em></a>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="region-filter">
+        <li><button type="button" class="active" data-filter="all">All</button></li>
+        <li><button type="button" data-filter="jeju">JEJU</button></li>
+        <li><button type="button" data-filter="gangneung">GANGNEUNG</button></li>
+        <li><button type="button" data-filter="yangyang">YANGYANG</button></li>
+        <li><button type="button" data-filter="seoul">SEOUL</button></li>
+        <li><button type="button" data-filter="busan">BUSAN</button></li>
+        <li><button type="button" data-filter="gyeongju">GYEONGJU</button></li>
+        <li><button type="button" data-filter="namhae">NAMHAE</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 2 : STAY EXPERIENCE ========== -->
+  <section id="experience">
+    <div class="exp-bg">
+      <img src="images/section_02_1.png" alt="" id="expBgImg" />
+    </div>
+    <div class="exp-photo">
+      <img src="images/section_02_1.png" alt="선택된 스테이" id="expPhoto" />
+    </div>
+    <div class="inner exp-inner">
+      <p class="eyebrow light"><span></span>Stay Experience</p>
+      <h2 class="sec-title light">공간이 선물하는 <strong>특별한 기억</strong></h2>
+      <p class="sec-sub">시간이 지나도 마음에 남는 공간의 기록을 만나보세요.</p>
+
+      <div class="exp-info">
+        <span class="badge" id="expBadge">GYEONGJU</span>
+        <p class="exp-name">
+          <strong id="expName">담연재</strong>
+          <span class="price"><b id="expPrice">&#8361; 320,000</b> / 1박</span>
+        </p>
+      </div>
+      <p class="exp-desc" id="expDesc">계절이 스며드는 집<br />마당을 지나 문을 열면, 고요한 시간이 머뭅니다.</p>
+      <a href="#" class="exp-arrow">&#10230;</a>
+
+      <ul class="exp-thumbs">
+        <li class="active" data-bg="images/section_02_1.png" data-badge="GYEONGJU" data-name="담연재" data-price="&#8361; 320,000" data-desc="계절이 스며드는 집&lt;br&gt;마당을 지나 문을 열면, 고요한 시간이 머뭅니다.">
+          <img src="images/section_02_1.png" alt="한옥" /><span>한옥</span>
+        </li>
+        <li data-bg="images/section_02_2.png" data-badge="GANGNEUNG" data-name="웨이브 하우스" data-price="&#8361; 380,000" data-desc="파도 소리에 잠드는 공간&lt;br&gt;창밖으로 펼쳐진 바다가 하루의 끝을 채웁니다.">
+          <img src="images/section_02_2.png" alt="오션뷰" /><span>오션뷰</span>
+        </li>
+        <li data-bg="images/section_02_3.png" data-badge="YANGYANG" data-name="포레스트 캐빈" data-price="&#8361; 290,000" data-desc="자연과 가장 가까운 하루&lt;br&gt;창문을 열면 바람과 나무 향이 먼저 반겨줍니다.">
+          <img src="images/section_02_3.png" alt="숲속" /><span>숲속</span>
+        </li>
+        <li data-bg="images/section_02_4.png" data-badge="SEOUL" data-name="모노스테이" data-price="&#8361; 350,000" data-desc="비움으로 완성된 쉼&lt;br&gt;꼭 필요한 것만 남겨둔 조용한 공간입니다.">
+          <img src="images/section_02_4.png" alt="미니멀" /><span>미니멀</span>
+        </li>
+        <li data-bg="images/section_02_5.png" data-badge="JEJU" data-name="제주담 스테이" data-price="&#8361; 420,000" data-desc="오롯이 우리만의 시간&lt;br&gt;누구의 방해도 없이 머무름에 집중해 보세요.">
+          <img src="images/section_02_5.png" alt="독채" /><span>독채</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 3 : STAY DESTINATIONS ========== -->
+  <section id="destinations">
+    <div class="inner dest-inner">
+      <div class="dest-text">
+        <p class="eyebrow"><span></span>Stay Destinations</p>
+        <h2 class="sec-title">어디로 <strong>떠나고 싶나요?</strong></h2>
+        <p class="sec-sub">당신만의 머무름을 위한 공간을 발견해보세요.</p>
+      </div>
+      <ul class="dest-list">
+        <li>
+          <div class="icon-box"><img src="images/Vector.svg" alt="" /></div>
+          <div class="dest-default">
+            <em>01</em>
+            <p>Curated Stay</p>
+          </div>
+          <div class="dest-hover">
+            <p>공간의 가치와 경험을<br />기준으로 선별합니다.</p>
+            <span>&#10230;</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box"><img src="images/Vector-1.svg" alt="" /></div>
+          <div class="dest-default">
+            <em>02</em>
+            <p>Local Mood</p>
+          </div>
+          <div class="dest-hover">
+            <p>지역의 분위기와<br />이야기를 담아냅니다.</p>
+            <span>&#10230;</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box"><img src="images/Vector-2.svg" alt="" /></div>
+          <div class="dest-default">
+            <em>03</em>
+            <p>Private Time</p>
+          </div>
+          <div class="dest-hover">
+            <p>방해받지 않는<br />온전한 휴식을 제공합니다.</p>
+            <span>&#10230;</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon-box"><img src="images/Vector-3.svg" alt="" /></div>
+          <div class="dest-default">
+            <em>04</em>
+            <p>Meaningful Journey</p>
+          </div>
+          <div class="dest-hover">
+            <p>머무름이 여행이 되는<br />경험을 제안합니다.</p>
+            <span>&#10230;</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== SECTION 4 : STAY STORIES ========== -->
+  <section id="stories">
+    <div class="inner stories-inner">
+      <div class="stories-text">
+        <p class="eyebrow"><span></span>Stay Stories</p>
+        <h2 class="sec-title"><strong>공간과 여행에</strong><br />대한 이야기</h2>
+        <p class="sec-sub">좋은 공간은<br />좋은 기억으로 남습니다.</p>
+        <a href="#" class="more-link">more <em>&#10230;</em></a>
+      </div>
+      <div class="stories-visual">
+        <img src="images/section_04.png" alt="공간과 여행 이야기" />
+      </div>
+      <ul class="stories-list">
+        <li>
+          <a href="#"><em>SPACE</em><p>숲이 보이는 창에 대하여</p><span>2026.03.25</span></a>
+        </li>
+        <li>
+          <a href="#"><em>LOCAL</em><p>제주의 바람을 담은 스테이</p><span>2026.03.25</span></a>
+        </li>
+        <li>
+          <a href="#"><em>GUIDE</em><p>좋은 숙소를 고르는 기준</p><span>2026.03.25</span></a>
+        </li>
+        <li>
+          <a href="#"><em>SEASON</em><p>겨울에 머물기 좋은 공간</p><span>2026.03.25</span></a>
+        </li>
+        <li>
+          <a href="#"><em>STORY</em><p>여행의 순간을 기록하는 방법</p><span>2026.03.25</span></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="inner">
+      <div class="footer-top">
+        <ul class="footer-btns">
+          <li><a href="#">입점 문의</a></li>
+          <li><a href="#">제휴 문의</a></li>
+          <li><a href="#">B2B 구매</a></li>
+          <li><a href="#">1:1 문의</a></li>
+        </ul>
+        <p class="footer-logo"><img src="images/logo.png" alt="STAY FOLIO" /></p>
+      </div>
+      <div class="footer-info">
+        <p>상호명 : (주) 스테이폴리오 &nbsp;|&nbsp; 대표자 : 장인성 &nbsp;|&nbsp; 주소 : 서울특별시 종로구 자하문로9길 24, 2층(통인동) &nbsp;|&nbsp; 사업자등록번호 : 676-87-00055</p>
+        <p>통신판매업신고 : 제2015-서울종로-0499호 | 관광사업자등록 : 일반여행업 2018-000049호(종로구청) &nbsp;|&nbsp; 전화 : 1670-4123 &nbsp;|&nbsp; 전자우편 : help@stayfolio.com</p>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          <p>(주)스테이폴리오는 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다.</p>
+          <p>&copy;STYAFOLIO. All rights reserved.</p>
+        </div>
+        <ul class="footer-sns">
+          <li><a href="#" aria-label="네이버"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h5.2l5.4 7.8V4H20v16h-5.2l-5.4-7.8V20H4z"/></svg></a></li>
+          <li><a href="#" aria-label="인스타그램"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="#" aria-label="브런치"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v18M8 10c5 0 8 1.5 8 5s-3 5-8 5M8 10c4 0 6-1.5 6-3.5S12 3 8 3"/></svg></a></li>
+          <li><a href="#" aria-label="페이스북"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H6v4h3v9h4v-9h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg></a></li>
+          <li><a href="#" aria-label="유튜브"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.8 2.8 0 0 0-2-2C17.9 4.8 12 4.8 12 4.8s-5.9 0-7.6.4a2.8 2.8 0 0 0-2 2A29 29 0 0 0 2 12a29 29 0 0 0 .4 4.8 2.8 2.8 0 0 0 2 2c1.7.4 7.6.4 7.6.4s5.9 0 7.6-.4a2.8 2.8 0 0 0 2-2A29 29 0 0 0 22 12a29 29 0 0 0-.4-4.8zM10 15.5v-7l6 3.5z"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
