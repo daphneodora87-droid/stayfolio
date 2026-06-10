@@ -181,7 +181,8 @@ body {
   background: rgba(120, 110, 100, 0.45);
   backdrop-filter: blur(6px);
 }
-.header-util button {
+.header-util button,
+.header-util a {
   display: flex;
   align-items: center;
   color: #fff;
@@ -260,12 +261,10 @@ body {
 }
 
 .hero-indicator {
-  position: absolute;
-  left: 60px;
-  bottom: 110px;
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 56px;
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.1em;
@@ -316,7 +315,7 @@ body {
 
 .stay-card {
   position: relative;
-  flex: 0 0 calc((min(100vw, 1400px) - 198px) / 4.35);
+  flex: 0 0 330px; /* PC 고정 가로 330px */
   min-width: 280px;
   height: 406px; /* 시안 카드 이미지 세로 크기 */
   border-radius: 20px;
@@ -866,14 +865,25 @@ body {
   .stories-text, .stories-visual { flex: 0 0 44%; }
   .stories-list { flex: 0 0 100%; margin-top: 0; padding: 60px 0; }
 }
+@media (max-width: 1024px) {
+  .hero-text { top: 34%; }
+  .hero-text h2 { font-size: 44px; }
+  .hero-text p { font-size: 15px; }
+  .hero-indicator { bottom: 54px; }
+}
+/* 화면 높이가 낮을 때도 텍스트와 인디케이터가 겹치지 않도록 */
+@media (max-height: 680px) {
+  .hero-text { top: 30%; }
+  .hero-indicator { bottom: 30px; }
+}
 @media (max-width: 860px) {
   .inner { padding: 0 24px; }
   .gnb { display: none; }
-  .hero-text { left: 24px; }
-  .hero-text h2 { font-size: 38px; }
-  .hero-indicator { left: 24px; }
+  .hero-text { left: 24px; top: 32%; }
+  .hero-text h2 { font-size: 34px; }
+  .hero-indicator { left: 24px; bottom: 40px; }
   .sec-title { font-size: 30px; }
-  .stay-card { flex: 0 0 72%; }
+  .stay-card { flex: 0 0 78%; min-width: 0; }
   .dest-list { flex-wrap: wrap; gap: 30px 0; }
   .dest-list li { flex: 0 0 50%; width: auto; padding: 0 10px; }
   .dest-list li + li { border-left: none; }
