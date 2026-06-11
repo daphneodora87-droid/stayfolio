@@ -51,9 +51,47 @@
           grid.scrollLeft - 6;
         target = null; // 휠 관성 이동과 충돌 방지
         grid.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
-        document.querySelectorAll('.po-nav button').forEach((b) => b.classList.toggle('active', b === btn));
       });
     });
+
+    // 월 네비게이터: 월별 스테이 개수 점 표시
+    const navBtns = [...document.querySelectorAll('.po-nav button')];
+    navBtns.forEach((btn) => {
+      const m = Number(btn.dataset.month);
+      const n = [...grid.querySelectorAll('.po-card')].filter(
+        (c) => new Date(c.dataset.open).getMonth() + 1 === m
+      ).length;
+      if (n > 0) {
+        const dots = document.createElement('i');
+        dots.className = 'dots';
+        dots.textContent = '•'.repeat(n);
+        btn.appendChild(dots);
+      }
+    });
+
+    // 스크롤 스파이: 슬라이더 위치에 맞춰 현재 월 자동 하이라이트
+    if (navBtns.length) {
+      const markers = [...grid.querySelectorAll('.po-month')];
+      function updateNav() {
+        const gridLeft = grid.getBoundingClientRect().left;
+        const anchor = grid.clientWidth * 0.3; // 화면 왼쪽 30% 지점 기준
+        let current = null;
+        markers.forEach((mk) => {
+          const left = mk.getBoundingClientRect().left - gridLeft;
+          if (left <= anchor) current = new Date(mk.dataset.open).getMonth() + 1;
+        });
+        if (current === null && markers.length) {
+          current = new Date(markers[0].dataset.open).getMonth() + 1;
+        }
+        navBtns.forEach((b) => b.classList.toggle('active', Number(b.dataset.month) === current));
+      }
+      let spyRaf = null;
+      grid.addEventListener('scroll', () => {
+        if (spyRaf) return;
+        spyRaf = requestAnimationFrame(() => { spyRaf = null; updateNav(); });
+      }, { passive: true });
+      updateNav();
+    }
   }
 
   const cards = document.querySelectorAll('.po-featured, .po-card');

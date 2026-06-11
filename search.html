@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SEARCH - STAYFOLIO</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/sub.css" />
 </head>
@@ -36,9 +37,26 @@
   </header>
 
   <section class="search-hero">
+    <span class="sh-ghost" aria-hidden="true"><i id="ghostType"></i></span>
     <div class="inner">
-      <h1>어디로 떠나고 싶나요?</h1>
-      <p>지역, 무드, 스테이 이름으로 한 번에 검색하세요.</p>
+      <p class="sh-eyebrow"><i></i>FIND YOUR STAY<i></i></p>
+      <h1>어디로 <em>떠나고</em> 싶나요?</h1>
+      <p class="sh-sub">지역, 무드, 스테이 이름으로 한 번에 검색하세요.</p>
+      <div class="sh-keywords" aria-label="인기 검색어">
+        <span>인기 검색어</span>
+        <button type="button" data-q="제주 오션뷰">#제주 오션뷰</button>
+        <button type="button" data-q="숲속 독채">#숲속 독채</button>
+        <button type="button" data-q="경주 독채">#경주 독채</button>
+        <button type="button" data-q="풀빌라">#풀빌라</button>
+      </div>
+    </div>
+    <div class="sh-marquee" aria-hidden="true">
+      <div class="sh-track">
+        <span>JEJU — GANGNEUNG — YANGYANG — SEOUL — BUSAN — GYEONGJU — NAMHAE — </span>
+        <span>JEJU — GANGNEUNG — YANGYANG — SEOUL — BUSAN — GYEONGJU — NAMHAE — </span>
+        <span>JEJU — GANGNEUNG — YANGYANG — SEOUL — BUSAN — GYEONGJU — NAMHAE — </span>
+        <span>JEJU — GANGNEUNG — YANGYANG — SEOUL — BUSAN — GYEONGJU — NAMHAE — </span>
+      </div>
     </div>
   </section>
 
@@ -195,6 +213,58 @@
           </div>
         </li>
       </ul>
+
+      <!-- 검색 결과 0건 폴백: 취향 추천 미니박스 -->
+      <div class="no-result" id="noResult">
+        <p class="nr-title" id="nrTitle">조건에 맞는 스테이가 없어요</p>
+        <p class="nr-sub" id="nrSub">필터를 조금 풀어보시거나, 아래 취향에서 다시 시작해 보세요.</p>
+        <div class="nr-grid">
+          <div class="promo-quad">
+            <div class="pq-tile pq-head">
+              <em>PICK A PLACE</em>
+              <strong>어디로 가고<br />싶으세요?</strong>
+              <span class="pq-story">끌리는 곳을 누르면<br />바로 찾아드려요</span>
+            </div>
+            <button type="button" class="pq-tile" data-group="region" data-value="jeju">
+              <span class="pq-ic c1"><i class="material-symbols-outlined">volcano</i></span>
+              <em>JEJU</em><strong>제주</strong>
+              <span class="pq-story">바람과 돌담의 섬</span>
+            </button>
+            <button type="button" class="pq-tile" data-group="region" data-value="gangneung">
+              <span class="pq-ic c2"><i class="material-symbols-outlined">waves</i></span>
+              <em>GANGNEUNG</em><strong>강릉</strong>
+              <span class="pq-story">파도 소리로 여는 아침</span>
+            </button>
+            <button type="button" class="pq-tile" data-group="region" data-value="yangyang">
+              <span class="pq-ic c3"><i class="material-symbols-outlined">surfing</i></span>
+              <em>YANGYANG</em><strong>양양</strong>
+              <span class="pq-story">숲과 서핑, 자유의 동네</span>
+            </button>
+          </div>
+          <div class="promo-quad">
+            <div class="pq-tile pq-head alt">
+              <em>TRENDING NOW</em>
+              <strong>요즘 유행하는<br />머무름은?</strong>
+              <span class="pq-story">이번 달 가장 많이<br />저장된 취향이에요</span>
+            </div>
+            <button type="button" class="pq-tile" data-group="mood" data-value="ocean">
+              <span class="pq-ic c2"><i class="material-symbols-outlined">water</i></span>
+              <em>OCEAN VIEW</em><strong>오션뷰</strong>
+              <span class="pq-story">창 너머가 온통 바다</span>
+            </button>
+            <button type="button" class="pq-tile" data-group="mood" data-value="pool">
+              <span class="pq-ic c4"><i class="material-symbols-outlined">pool</i></span>
+              <em>POOL VILLA</em><strong>풀빌라</strong>
+              <span class="pq-story">나만의 프라이빗 풀</span>
+            </button>
+            <button type="button" class="pq-tile" data-group="mood" data-value="forest">
+              <span class="pq-ic c1"><i class="material-symbols-outlined">forest</i></span>
+              <em>FOREST</em><strong>숲속 독채</strong>
+              <span class="pq-story">나무 사이의 고요</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 

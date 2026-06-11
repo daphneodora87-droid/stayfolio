@@ -156,7 +156,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.logo img { height: 44px; }
+.logo img { height: 35px; }
 
 .gnb ul {
   display: flex;
