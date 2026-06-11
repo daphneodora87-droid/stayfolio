@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PRE-ORDER - STAYFOLIO</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/sub.css" />
 </head>
@@ -18,20 +19,24 @@
           <li><a href="promotion.html">PROMOTION</a></li>
           <li><a href="journal.html">JOURNAL</a></li>
           <li><a href="pre-order.html">PRE-ORDER</a></li>
+          <li><a href="about.html">ABOUT</a></li>
         </ul>
       </nav>
       <div class="header-util">
         <a href="search.html" class="util-btn" aria-label="검색">
+          <span class="util-label">숙소 검색하기</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
         </a>
         <span class="util-divider"></span>
         <a href="login.html" class="util-btn" aria-label="마이페이지">
+          <span class="util-label">로그인 / 회원가입</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a7 7 0 0 1 11 0"></path></svg>
         </a>
       </div>
     </div>
   </header>
 
+  <!-- 탑 배너 숨김 처리 (복원 시 주석 해제)
   <section class="page-banner">
     <img src="images/section_02_5.png" alt="" />
     <div class="inner">
@@ -40,104 +45,227 @@
       <p class="banner-sub">오픈 전 가장 먼저 예약하는 특별한 기회.<br />새롭게 합류하는 스테이를 사전 예약으로 만나보세요.</p>
     </div>
   </section>
+  -->
+
 
   <section class="sub-section preorder-section">
     <div class="inner">
+      <!-- 상단 배경 밴드 -->
+      <div class="po-hero">
       <p class="breadcrumb"><a href="index.html">HOME</a><span>›</span>PRE-ORDER</p>
 
       <!-- 에디토리얼 헤더 -->
       <header class="po-head">
         <div class="po-head-left">
-          <p class="po-eyebrow">OPENING 2026</p>
-          <h2 class="po-head-title">곧 문을 여는<br />스테이 라인업</h2>
-        </div>
-        <div class="po-head-right">
-          <p class="po-head-lead">정식 오픈 전, 가장 먼저 예약할 수 있는 한정된 기회입니다. 알림을 신청하면 예약이 열리는 순간 가장 먼저 안내해 드려요.</p>
+          <p class="po-eyebrow"><i></i>OPENING 2026</p>
+          <h2 class="po-head-title">곧 문을 여는<br /><em>스테이 라인업</em></h2>
           <ul class="po-legend">
             <li><span class="po-dot open"></span>예약 임박</li>
             <li><span class="po-dot coming"></span>공개 예정</li>
+            <li><span class="po-dot live"></span>예약 가능</li>
+          </ul>
+        </div>
+        <div class="po-head-right">
+          <p class="po-head-lead">정식 오픈 전, 가장 먼저 예약할 수 있는 한정된 기회입니다.<br />알림을 신청하면 예약이 열리는 순간 가장 먼저 안내해 드려요.</p>
+          <ul class="po-head-stats">
+            <li><span class="material-symbols-outlined st-ic">home_work</span><div><strong>4</strong><span>준비 중인 스테이</span></div></li>
+            <li><span class="material-symbols-outlined st-ic">event_upcoming</span><div><strong>06.20</strong><span>가장 빠른 오픈</span></div></li>
+            <li><span class="material-symbols-outlined st-ic">hourglass_top</span><div><strong>한정</strong><span>수량 · 선착순</span></div></li>
           </ul>
         </div>
       </header>
+      </div>
 
-      <!-- 피처드 카드 -->
-      <article class="po-featured fx-reveal" data-open="2026-06-20T11:00" data-href="stay-detail.html">
+      <!-- 라인업: 연도 + 왼쪽 고정 NOW OPEN 카드 + 가로 슬라이더 -->
+      <div class="po-lineup">
+      <div class="po-month po-year fx-reveal">
+        <em aria-hidden="true"><i>&rsquo;</i>26</em>
+        <span aria-hidden="true">2026 OPENING</span>
+        <nav class="po-nav" aria-label="월별 라인업 이동">
+          <button type="button" data-month="6"><b>06</b><span>JUNE</span></button>
+          <button type="button" data-month="7"><b>07</b><span>JULY</span></button>
+          <button type="button" data-month="8"><b>08</b><span>AUGUST</span></button>
+        </nav>
+      </div>
+      <article class="po-featured fx-reveal" data-open="2026-06-10T11:00" data-href="stay-detail.html">
         <div class="po-featured-media">
-          <img src="images/section_01_5.png" alt="고요, 남해 언덕 위 독채" />
-          <span class="po-index">01</span>
-          <span class="po-status open">OPEN SOON</span>
+          <img src="images/section_02_4.png" alt="모노 스테이 서울" />
+          <span class="po-status live">NOW OPEN</span>
+        </div>
+        <div class="po-featured-cover" aria-hidden="true">
+          <span>NOW OPEN</span>
+          <strong>모노 스테이 서울</strong>
         </div>
         <div class="po-featured-body">
-          <span class="po-dday" data-dday>D-DAY</span>
-          <h3>고요, 남해 언덕 위 독채</h3>
-          <p class="po-desc">바다를 정면으로 내려다보는 단 한 채의 집. 군더더기를 덜어낸 고요한 한옥의 결 위로, 남해의 바람과 빛이 하루를 천천히 채웁니다. 6월, 가장 먼저 머무를 수 있는 사전 예약을 시작합니다.</p>
+          <div class="po-meta">
+            <span class="po-dday" data-dday>D-DAY</span>
+            <span class="po-open-mini">예약 오픈 <strong>2026.06.10 (수) 11:00</strong></span>
+          </div>
+          <h3>모노 스테이 서울</h3>
+          <p class="po-desc">비움으로 완성된 도심 속 미니멀 하우스. 도시의 소음을 잠시 내려놓는 머무름이 드디어 문을 열었습니다. 지금 바로 예약할 수 있습니다.</p>
           <ul class="po-spec">
-            <li><span>위치</span>경상남도 남해 · 독채</li>
-            <li><span>구성</span>침실 2 · 최대 4인</li>
-            <li><span>수량</span>한정 1채</li>
+            <li><span class="material-symbols-outlined sp-ic">location_on</span><div><em>위치</em><b>서울 성북동 · 독채</b></div></li>
+            <li><span class="material-symbols-outlined sp-ic">king_bed</span><div><em>구성</em><b>침실 1 · 최대 2인</b></div></li>
+            <li><span class="material-symbols-outlined sp-ic">key</span><div><em>수량</em><b>한정 2채</b></div></li>
           </ul>
           <div class="po-foot">
-            <div class="po-open">
-              <span class="po-open-label">예약 오픈</span>
-              <strong>2026.06.20 (토) 11:00</strong>
-            </div>
-            <button type="button" class="po-notify">알림 신청 <em>→</em></button>
+            <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
           </div>
         </div>
       </article>
 
-      <!-- 라인업 그리드 -->
+      <!-- 라인업 슬라이더 (오픈일순, 월 구분 숫자) -->
       <div class="po-grid">
-        <article class="po-card fx-reveal" data-open="2026-06-25T11:00" data-href="stay-detail.html">
+        <div class="po-month fx-reveal" aria-hidden="true" data-open="2026-06-01T00:00"><em>6</em><span>JUNE</span></div>
+
+        <article class="po-card fx-reveal" data-open="2026-06-20T11:00" data-href="stay-detail.html">
           <div class="po-card-media">
-            <img src="images/section_02_2.png" alt="웨이브 하우스 강릉" />
-            <span class="po-index">02</span>
+            <img src="images/section_01_5.png" alt="고요, 남해 언덕 위 독채" />
             <span class="po-status open">OPEN SOON</span>
           </div>
           <div class="po-card-body">
-            <span class="po-dday" data-dday>D-DAY</span>
-            <h3>웨이브 하우스 강릉</h3>
-            <p>파도 소리에 잠드는 오션 프론트 스테이. 한정 수량으로 사전 예약을 받습니다.</p>
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.06.20 11:00</strong></span>
+            </div>
+            <h3>고요, 남해 언덕 위 독채</h3>
+            <p>바다를 정면으로 내려다보는 단 한 채의 한옥. 6월, 사전 예약을 시작합니다.</p>
             <div class="po-foot">
-              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.06.25 11:00</strong></div>
-              <button type="button" class="po-notify">알림 <em>→</em></button>
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
             </div>
           </div>
         </article>
+
+        <article class="po-card fx-reveal" data-open="2026-06-25T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_02_2.png" alt="웨이브 하우스 강릉" />
+            <span class="po-status open">OPEN SOON</span>
+          </div>
+          <div class="po-card-body">
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.06.25 11:00</strong></span>
+            </div>
+            <h3>웨이브 하우스 강릉</h3>
+            <p>파도 소리에 잠드는 오션 프론트 스테이. 한정 수량으로 사전 예약을 받습니다.</p>
+            <div class="po-foot">
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="po-card fx-reveal" data-open="2026-06-28T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_01_2.png" alt="온, 경주 한옥 스테이" />
+            <span class="po-status open">OPEN SOON</span>
+          </div>
+          <div class="po-card-body">
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.06.28 11:00</strong></span>
+            </div>
+            <h3>온, 경주 한옥 스테이</h3>
+            <p>고요한 마당과 낮은 처마. 천년 고도의 시간을 닮은 한옥에서의 하룻밤.</p>
+            <div class="po-foot">
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="po-month fx-reveal" aria-hidden="true" data-open="2026-07-01T00:00"><em>7</em><span>JULY</span></div>
 
         <article class="po-card fx-reveal" data-open="2026-07-02T11:00" data-href="stay-detail.html">
           <div class="po-card-media">
             <img src="images/section_02_3.png" alt="포레스트 캐빈 양양" />
-            <span class="po-index">03</span>
             <span class="po-status coming">COMING</span>
           </div>
           <div class="po-card-body">
-            <span class="po-dday" data-dday>D-DAY</span>
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.07.02 11:00</strong></span>
+            </div>
             <h3>포레스트 캐빈 양양</h3>
             <p>창을 열면 나무 향이 먼저 반기는 숲속의 작은 집. 곧 라인업에 합류합니다.</p>
             <div class="po-foot">
-              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.07.02 11:00</strong></div>
-              <button type="button" class="po-notify">알림 <em>→</em></button>
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
             </div>
           </div>
         </article>
 
-        <article class="po-card fx-reveal" data-open="2026-07-10T11:00" data-href="stay-detail.html">
+        <article class="po-card fx-reveal" data-open="2026-07-09T11:00" data-href="stay-detail.html">
           <div class="po-card-media">
-            <img src="images/section_02_4.png" alt="모노 스테이 서울" />
-            <span class="po-index">04</span>
+            <img src="images/section_01_3.png" alt="레이어드 하우스 제주" />
             <span class="po-status coming">COMING</span>
           </div>
           <div class="po-card-body">
-            <span class="po-dday" data-dday>D-DAY</span>
-            <h3>모노 스테이 서울</h3>
-            <p>비움으로 완성된 도심 속 미니멀 하우스. 디테일을 다듬어 곧 공개합니다.</p>
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.07.09 11:00</strong></span>
+            </div>
+            <h3>레이어드 하우스 제주</h3>
+            <p>돌담 너머 귤밭이 펼쳐지는 제주 서쪽 독채. 바람의 결을 그대로 담았습니다.</p>
             <div class="po-foot">
-              <div class="po-open"><span class="po-open-label">예약 오픈</span><strong>2026.07.10 11:00</strong></div>
-              <button type="button" class="po-notify">알림 <em>→</em></button>
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
             </div>
           </div>
         </article>
+
+        <article class="po-card fx-reveal" data-open="2026-07-16T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_04_1.png" alt="스틸니스 양평" />
+            <span class="po-status coming">COMING</span>
+          </div>
+          <div class="po-card-body">
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.07.16 11:00</strong></span>
+            </div>
+            <h3>스틸니스 양평</h3>
+            <p>강을 마주한 통창과 자작나무 숲. 서울에서 한 시간, 완전한 고요 속으로.</p>
+            <div class="po-foot">
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="po-card fx-reveal" data-open="2026-07-23T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/section_04_2.png" alt="모래, 태안 듄 하우스" />
+            <span class="po-status coming">COMING</span>
+          </div>
+          <div class="po-card-body">
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.07.23 11:00</strong></span>
+            </div>
+            <h3>모래, 태안 듄 하우스</h3>
+            <p>모래언덕 위에 낮게 앉은 집. 노을이 가장 길게 머무는 서해의 스테이.</p>
+            <div class="po-foot">
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="po-month fx-reveal" aria-hidden="true" data-open="2026-08-01T00:00"><em>8</em><span>AUGUST</span></div>
+
+        <article class="po-card fx-reveal" data-open="2026-08-04T11:00" data-href="stay-detail.html">
+          <div class="po-card-media">
+            <img src="images/hero_02.png" alt="윤슬, 통영 바다 별채" />
+            <span class="po-status coming">COMING</span>
+          </div>
+          <div class="po-card-body">
+            <div class="po-meta">
+              <span class="po-dday" data-dday>D-DAY</span>
+              <span class="po-open-mini">예약 오픈 <strong>2026.08.04 11:00</strong></span>
+            </div>
+            <h3>윤슬, 통영 바다 별채</h3>
+            <p>잔잔한 바다 위 반짝이는 윤슬을 침대에서 바라보는 남해안의 작은 별채.</p>
+            <div class="po-foot">
+              <button type="button" class="po-notify">오픈 알림 신청 <em>→</em></button>
+            </div>
+          </div>
+        </article>
+      </div>
       </div>
     </div>
   </section>

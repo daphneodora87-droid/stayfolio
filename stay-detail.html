@@ -18,14 +18,17 @@
           <li><a href="promotion.html">PROMOTION</a></li>
           <li><a href="journal.html">JOURNAL</a></li>
           <li><a href="pre-order.html">PRE-ORDER</a></li>
+          <li><a href="about.html">ABOUT</a></li>
         </ul>
       </nav>
       <div class="header-util">
         <a href="search.html" class="util-btn" aria-label="검색">
+          <span class="util-label">숙소 검색하기</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
         </a>
         <span class="util-divider"></span>
         <a href="login.html" class="util-btn" aria-label="마이페이지">
+          <span class="util-label">로그인 / 회원가입</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a7 7 0 0 1 11 0"></path></svg>
         </a>
       </div>
@@ -37,10 +40,27 @@
       <p class="breadcrumb"><a href="index.html">HOME</a><span>›</span><a href="find-stay.html">FIND STAY</a><span>›</span>담연재</p>
 
       <!-- 갤러리 -->
-      <div class="detail-gallery">
-        <img class="main" id="galleryMain" src="images/section_02_1.png" alt="담연재 메인" />
-        <img src="images/section_02_2.png" alt="" />
-        <img src="images/section_02_3.png" alt="" />
+      <div class="detail-gallery" id="detailGallery">
+        <div class="g-item g-main"><img id="galleryMain" src="images/section_02_1.png" alt="담연재 메인" /></div>
+        <div class="g-item"><img src="images/section_02_2.png" alt="담연재 거실" /></div>
+        <div class="g-item"><img src="images/section_02_3.png" alt="담연재 침실" /></div>
+        <div class="g-item"><img src="images/section_02_4.png" alt="담연재 마당" /></div>
+        <div class="g-item"><img src="images/section_02_5.png" alt="담연재 욕실" /></div>
+        <button type="button" class="g-all" id="galleryAllBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+          사진 모두 보기
+        </button>
+      </div>
+
+      <!-- 갤러리 라이트박스 -->
+      <div class="g-lightbox" id="gLightbox" aria-hidden="true">
+        <button type="button" class="g-close" id="gClose" aria-label="닫기">✕</button>
+        <button type="button" class="g-nav prev" id="gPrev" aria-label="이전">‹</button>
+        <figure>
+          <img id="gLightboxImg" src="images/section_02_1.png" alt="" />
+          <figcaption id="gCount">1 / 5</figcaption>
+        </figure>
+        <button type="button" class="g-nav next" id="gNext" aria-label="다음">›</button>
       </div>
 
       <div class="detail-body">
@@ -75,6 +95,48 @@
 
           <h4>위치 안내</h4>
           <p class="lead" style="border:none;padding-top:0;margin-top:8px">경주 도심에서 차로 약 15분, 고즈넉한 한옥 마을 안에 자리합니다. 첨성대와 동궁과 월지 등 주요 명소가 가까워 도보와 자전거로 경주의 밤을 즐기기 좋습니다.</p>
+
+          <h4>리뷰</h4>
+          <div class="review-summary">
+            <div class="score">
+              <strong>4.9</strong>
+              <div class="stars">★★★★★</div>
+              <span>리뷰 128개</span>
+            </div>
+            <ul class="score-bars">
+              <li><span>청결</span><div class="bar"><i style="width:98%"></i></div><b>4.9</b></li>
+              <li><span>위치</span><div class="bar"><i style="width:96%"></i></div><b>4.8</b></li>
+              <li><span>편의시설</span><div class="bar"><i style="width:94%"></i></div><b>4.7</b></li>
+              <li><span>호스트</span><div class="bar"><i style="width:100%"></i></div><b>5.0</b></li>
+            </ul>
+          </div>
+          <ul class="review-list">
+            <li>
+              <div class="review-top">
+                <span class="review-avatar">민</span>
+                <div class="review-who"><b>김민지</b><span>2026.05 방문</span></div>
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p>사진보다 실물이 훨씬 좋았어요. 해 질 무렵 마당에 앉아 보낸 시간이 가장 기억에 남습니다. 침구도 포근했고, 온돌 덕분에 밤새 따뜻하게 잤어요.</p>
+            </li>
+            <li>
+              <div class="review-top">
+                <span class="review-avatar">준</span>
+                <div class="review-who"><b>박준호</b><span>2026.04 방문</span></div>
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p>조용하고 구석구석 깨끗합니다. 웰컴 티 세트의 향이 정말 좋았어요. 전용 주차가 있어 편했고, 호스트분 응대도 친절했습니다.</p>
+            </li>
+            <li>
+              <div class="review-top">
+                <span class="review-avatar">서</span>
+                <div class="review-who"><b>이서연</b><span>2026.03 방문</span></div>
+                <span class="review-stars">★★★★☆</span>
+              </div>
+              <p>한옥의 정취를 그대로 느낄 수 있는 곳이에요. 비 오는 날 처마 밑에서 차 마시던 순간은 오래 기억날 것 같아요. 다음엔 가족과 함께 오려고요.</p>
+            </li>
+          </ul>
+          <button type="button" class="review-more">리뷰 128개 모두 보기</button>
         </div>
 
         <!-- 예약 박스 -->
@@ -193,5 +255,43 @@
 
   <script src="js/sub.js"></script>
   <script src="js/booking.js"></script>
+  <script>
+    // ===== 갤러리 라이트박스 =====
+    (function galleryLightbox() {
+      const imgs = [...document.querySelectorAll('#detailGallery .g-item img')];
+      const box = document.getElementById('gLightbox');
+      const boxImg = document.getElementById('gLightboxImg');
+      const count = document.getElementById('gCount');
+      let cur = 0;
+
+      function show(i) {
+        cur = (i + imgs.length) % imgs.length;
+        boxImg.src = imgs[cur].src;
+        count.textContent = (cur + 1) + ' / ' + imgs.length;
+      }
+      function open(i) {
+        show(i);
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        box.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      imgs.forEach((img, i) => img.addEventListener('click', () => open(i)));
+      document.getElementById('galleryAllBtn').addEventListener('click', () => open(0));
+      document.getElementById('gClose').addEventListener('click', close);
+      document.getElementById('gPrev').addEventListener('click', () => show(cur - 1));
+      document.getElementById('gNext').addEventListener('click', () => show(cur + 1));
+      box.addEventListener('click', (e) => { if (e.target === box) close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!box.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(cur - 1);
+        if (e.key === 'ArrowRight') show(cur + 1);
+      });
+    })();
+  </script>
 </body>
 </html>

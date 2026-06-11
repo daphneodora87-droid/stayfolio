@@ -187,7 +187,24 @@ body {
   align-items: center;
   color: #fff;
 }
-.header-util svg { width: 19px; height: 19px; }
+.header-util svg { width: 19px; height: 19px; flex: 0 0 auto; }
+/* 호버 시 왼쪽으로 늘어나며 라벨 노출 */
+.util-btn .util-label {
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  margin-right: 0;
+  transition: max-width 0.45s ease, opacity 0.3s ease 0.08s, margin-right 0.45s ease;
+}
+.util-btn:hover .util-label {
+  max-width: 140px;
+  opacity: 1;
+  margin-right: 9px;
+}
 .util-divider {
   width: 1px;
   height: 16px;
@@ -890,4 +907,29 @@ body {
   .dest-list li + li { border-left: none; }
   .stories-text, .stories-visual { flex: 0 0 100%; }
   .footer-top, .footer-bottom { flex-direction: column; gap: 30px; }
+}
+
+/* ===================== 숫자 표기 공통 폰트 (파도체) ===================== */
+.hero-indicator .current,
+.hero-indicator .total,
+.stay-card .price,
+.booking-box .price,
+.price-summary,
+.step-val,
+.calendar,
+.dest-default em,
+.promo-card .num,
+.promo-card .discount b,
+.promo-card .period,
+.po-index,
+.po-dday,
+.po-open strong,
+.po-head-stats strong,
+.pd-summary .item b,
+.pd-other-card .period,
+.journal-card .date,
+.journal-feature .date,
+.g-lightbox figcaption {
+  font-family: 'Wave', sans-serif;
+  font-weight: normal;
 }

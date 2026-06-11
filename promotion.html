@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PROMOTION - STAYFOLIO</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/sub.css" />
 </head>
@@ -18,20 +19,24 @@
           <li><a href="promotion.html">PROMOTION</a></li>
           <li><a href="journal.html">JOURNAL</a></li>
           <li><a href="pre-order.html">PRE-ORDER</a></li>
+          <li><a href="about.html">ABOUT</a></li>
         </ul>
       </nav>
       <div class="header-util">
         <a href="search.html" class="util-btn" aria-label="검색">
+          <span class="util-label">숙소 검색하기</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
         </a>
         <span class="util-divider"></span>
         <a href="login.html" class="util-btn" aria-label="마이페이지">
+          <span class="util-label">로그인 / 회원가입</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 19a7 7 0 0 1 11 0"></path></svg>
         </a>
       </div>
     </div>
   </header>
 
+  <!-- 탑 배너 숨김 처리 (복원 시 주석 해제)
   <section class="page-banner">
     <img src="images/section_02_2.png" alt="" />
     <div class="inner">
@@ -40,27 +45,34 @@
       <p class="banner-sub">계절과 순간에 어울리는 특별한 혜택<br />지금, 스테이폴리오의 프로모션을 만나보세요.</p>
     </div>
   </section>
+  -->
 
-  <section class="sub-section">
+  <section class="sub-section no-banner">
     <div class="inner">
       <p class="breadcrumb"><a href="index.html">HOME</a><span>›</span>PROMOTION</p>
 
+      <!-- 진행/종료 탭 -->
+      <ul class="filter-bar promo-tabs" style="margin-bottom:44px">
+        <li><button type="button" class="active" data-tab="ongoing">진행 중</button></li>
+        <li><button type="button" data-tab="ended">종료</button></li>
+      </ul>
+
       <!-- 피처드 프로모션 -->
-      <article class="promo-feature fx-reveal">
+      <article class="promo-feature fx-reveal" onclick="location.href='promotion-detail.html?promo=feature'" style="cursor:pointer">
         <img src="images/section_01_2.png" alt="" />
         <div class="body">
           <span class="tag">EARLY SUMMER · 15% OFF</span>
           <h2>초여름, 오션뷰 스테이<br />특별가로 만나기</h2>
           <p>바다가 가장 빛나는 계절. 동해와 남해의 오션뷰 스테이를 15% 할인된 가격에. 평일 2박 이상 예약 시 추가 혜택이 제공됩니다.</p>
-          <a href="find-stay.html" class="cta">지금 예약하기 →</a>
+          <a href="promotion-detail.html?promo=feature" class="cta">자세히 보기 →</a>
         </div>
       </article>
 
       <div class="promo-list">
-        <article class="promo-card fx-reveal">
+        <article class="promo-card fx-reveal" onclick="location.href='promotion-detail.html?promo=1'" style="cursor:pointer">
           <div class="thumb">
             <img src="images/section_02_1.png" alt="" />
-            <div class="discount"><b>GIFT</b><span>웰컴 티</span></div>
+            <div class="discount"><span class="material-symbols-outlined d-ic">redeem</span><div class="d-txt"><b>GIFT</b><span>웰컴 티</span></div></div>
           </div>
           <div class="body">
             <span class="num">01</span>
@@ -68,16 +80,16 @@
             <h3>한옥에서의 하룻밤, 웰컴 티 세트 증정</h3>
             <p>경주·전주의 고즈넉한 한옥 스테이를 예약하시면 지역 명인의 웰컴 티 세트를 드립니다. 느린 시간의 정취를 온전히 누려보세요.</p>
             <div class="foot">
-              <span class="period">📅 2026.05.20 ~ 08.20</span>
-              <a href="find-stay.html" class="more-arrow">혜택 받기 →</a>
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">2026.05.20 ~ 08.20</span></span>
+              <a href="promotion-detail.html?promo=1" class="more-arrow">혜택 받기 →</a>
             </div>
           </div>
         </article>
 
-        <article class="promo-card fx-reveal">
+        <article class="promo-card fx-reveal" onclick="location.href='promotion-detail.html?promo=2'" style="cursor:pointer">
           <div class="thumb">
             <img src="images/section_02_3.png" alt="" />
-            <div class="discount"><b>LATE</b><span>13:00</span></div>
+            <div class="discount"><span class="material-symbols-outlined d-ic">schedule</span><div class="d-txt"><b>LATE</b><span>13:00</span></div></div>
           </div>
           <div class="body">
             <span class="num">02</span>
@@ -85,16 +97,16 @@
             <h3>숲속 캐빈 평일 늦은 체크아웃</h3>
             <p>양양·가평의 포레스트 캐빈에서 평일 예약 시 오후 1시 레이트 체크아웃을 제공합니다. 아침 숲의 공기를 조금 더 길게 머금어보세요.</p>
             <div class="foot">
-              <span class="period">📅 2026.06.10 ~ 09.30</span>
-              <a href="find-stay.html" class="more-arrow">혜택 받기 →</a>
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">2026.06.10 ~ 09.30</span></span>
+              <a href="promotion-detail.html?promo=2" class="more-arrow">혜택 받기 →</a>
             </div>
           </div>
         </article>
 
-        <article class="promo-card fx-reveal">
+        <article class="promo-card fx-reveal" onclick="location.href='promotion-detail.html?promo=3'" style="cursor:pointer">
           <div class="thumb">
             <img src="images/section_02_4.png" alt="" />
-            <div class="discount"><b>2박</b><span>패키지</span></div>
+            <div class="discount"><span class="material-symbols-outlined d-ic">hotel</span><div class="d-txt"><b>2박</b><span>패키지</span></div></div>
           </div>
           <div class="body">
             <span class="num">03</span>
@@ -102,16 +114,16 @@
             <h3>도심 미니멀 스테이 2박 패키지</h3>
             <p>서울 도심 속 프라이빗 하우스를 2박 패키지로. 비움으로 완성된 공간에서 도시의 소음을 잠시 내려놓는 시간을 선물하세요.</p>
             <div class="foot">
-              <span class="period">📅 2026.06.01 ~ 07.15</span>
-              <a href="find-stay.html" class="more-arrow">혜택 받기 →</a>
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">2026.06.01 ~ 07.15</span></span>
+              <a href="promotion-detail.html?promo=3" class="more-arrow">혜택 받기 →</a>
             </div>
           </div>
         </article>
 
-        <article class="promo-card fx-reveal">
+        <article class="promo-card fx-reveal" onclick="location.href='promotion-detail.html?promo=4'" style="cursor:pointer">
           <div class="thumb">
             <img src="images/section_02_5.png" alt="" />
-            <div class="discount"><b>5%</b><span>적립</span></div>
+            <div class="discount"><span class="material-symbols-outlined d-ic">savings</span><div class="d-txt"><b>5%</b><span>적립</span></div></div>
           </div>
           <div class="body">
             <span class="num">04</span>
@@ -119,8 +131,42 @@
             <h3>독채 스테이 첫 예약 5% 추가 적립</h3>
             <p>스테이폴리오 첫 독채 예약 시 5% 추가 적립 혜택을 드립니다. 누구의 방해도 없는 온전한 머무름을 시작해보세요.</p>
             <div class="foot">
-              <span class="period">📅 상시 진행</span>
-              <a href="find-stay.html" class="more-arrow">혜택 받기 →</a>
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">상시 진행</span></span>
+              <a href="promotion-detail.html?promo=4" class="more-arrow">혜택 받기 →</a>
+            </div>
+          </div>
+        </article>
+        <!-- 종료된 프로모션 -->
+        <article class="promo-card ended fx-reveal">
+          <div class="thumb">
+            <img src="images/section_04_4.png" alt="" />
+            <div class="ended-chip">종료</div>
+          </div>
+          <div class="body">
+            <span class="num">05</span>
+            <div class="head"><span class="tag">SPRING</span></div>
+            <h3>봄맞이 얼리버드 12% 할인</h3>
+            <p>벚꽃 시즌의 스테이를 가장 먼저 예약하신 분들께 12% 할인을 드렸던 프로모션입니다. 따뜻한 계절, 많은 분들이 함께해주셨습니다.</p>
+            <div class="foot">
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">2026.03.02 ~ 04.30</span></span>
+              <span class="ended-label">종료된 프로모션</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="promo-card ended fx-reveal">
+          <div class="thumb">
+            <img src="images/section_04_5.png" alt="" />
+            <div class="ended-chip">종료</div>
+          </div>
+          <div class="body">
+            <span class="num">06</span>
+            <div class="head"><span class="tag">WEEKEND</span></div>
+            <h3>연박 위크엔드 조식 패키지</h3>
+            <p>주말 2박 이상 예약 시 로컬 카페 조식을 제공했던 패키지입니다. 느긋한 주말 아침을 함께한 프로모션이었습니다.</p>
+            <div class="foot">
+              <span class="period"><em>EVENT PERIOD</em><span class="p-date">2026.04.01 ~ 05.31</span></span>
+              <span class="ended-label">종료된 프로모션</span>
             </div>
           </div>
         </article>
@@ -171,5 +217,40 @@
   </footer>
 
   <script src="js/sub.js"></script>
+  <script>
+    // 진행 중 / 종료 탭
+    (function () {
+      const tabs = document.querySelectorAll('.promo-tabs button');
+      const feature = document.querySelector('.promo-feature');
+      const cards = document.querySelectorAll('.promo-list .promo-card');
+      if (!tabs.length) return;
+      function apply(mode) {
+        if (feature) feature.style.display = mode === 'ongoing' ? '' : 'none';
+        cards.forEach((c) => {
+          const ended = c.classList.contains('ended');
+          c.style.display = (mode === 'ended') === ended ? '' : 'none';
+        });
+      }
+      tabs.forEach((t) => {
+        t.addEventListener('click', () => {
+          tabs.forEach((b) => b.classList.remove('active'));
+          t.classList.add('active');
+          apply(t.dataset.tab);
+        });
+      });
+      apply('ongoing');
+    })();
+
+    // 진행 중 프로모션: 남은 일수 표시
+    (function () {
+      document.querySelectorAll('.promo-list .promo-card:not(.ended) .period').forEach((el) => {
+        const end = el.textContent.match(/~\s*(\d{2})\.(\d{2})/);
+        const year = el.textContent.match(/(\d{4})\./);
+        if (!end || !year) return;
+        const left = Math.ceil((new Date(+year[1], +end[1] - 1, +end[2], 23, 59) - new Date()) / 86400000);
+        if (left >= 0) el.insertAdjacentHTML('beforeend', '<b class="left-days">' + left + '일 남음</b>');
+      });
+    })();
+  </script>
 </body>
 </html>

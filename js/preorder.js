@@ -2,6 +2,60 @@
    STAYFOLIO PRE-ORDER - D-day 계산 · 카드 이동 · 알림 신청 (preorder.js)
    ===================================================================== */
 (function () {
+  // 라인업 그리드: 오픈 날짜순 정렬
+  const grid = document.querySelector('.po-grid');
+  if (grid) {
+    [...grid.children]
+      .sort((a, b) => new Date(a.dataset.open) - new Date(b.dataset.open))
+      .forEach((el) => grid.appendChild(el));
+
+    // PC: Shift 없이 마우스 휠로 가로 스크롤 (부드러운 관성 이동)
+    let target = null;
+    let raf = null;
+    function glide() {
+      const diff = target - grid.scrollLeft;
+      if (Math.abs(diff) < 0.6) {
+        grid.scrollLeft = target;
+        raf = null;
+        target = null;
+        return;
+      }
+      grid.scrollLeft += diff * 0.14;
+      raf = requestAnimationFrame(glide);
+    }
+    grid.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return; // 트랙패드 가로 제스처는 그대로
+      const max = grid.scrollWidth - grid.clientWidth;
+      const from = target === null ? grid.scrollLeft : target;
+      const next = Math.max(0, Math.min(max, from + e.deltaY * 1.6));
+      const atStart = grid.scrollLeft <= 0;
+      const atEnd = grid.scrollLeft >= max - 1;
+      if ((e.deltaY > 0 && !atEnd) || (e.deltaY < 0 && !atStart)) {
+        e.preventDefault();
+        target = next;
+        if (!raf) raf = requestAnimationFrame(glide);
+      }
+    }, { passive: false });
+
+    // 월 네비게이터: 해당 월 마커로 스크롤
+    document.querySelectorAll('.po-nav button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mm = String(btn.dataset.month).padStart(2, '0');
+        const marker = [...grid.querySelectorAll('.po-month')].find((el) =>
+          (el.dataset.open || '').includes('-' + mm + '-')
+        );
+        if (!marker) return;
+        const left =
+          marker.getBoundingClientRect().left -
+          grid.getBoundingClientRect().left +
+          grid.scrollLeft - 6;
+        target = null; // 휠 관성 이동과 충돌 방지
+        grid.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+        document.querySelectorAll('.po-nav button').forEach((b) => b.classList.toggle('active', b === btn));
+      });
+    });
+  }
+
   const cards = document.querySelectorAll('.po-featured, .po-card');
   if (!cards.length) return;
 
@@ -25,9 +79,28 @@
       } else if (diff === 0) {
         badge.textContent = 'D-DAY';
         badge.classList.add('live');
+      } else if (diff < -1) {
+        // 오픈 후 하루가 지난 스테이는 라인업에서 제외
+        card.style.display = 'none';
+        return;
       } else {
-        badge.textContent = '예약 오픈';
+        badge.textContent = '예약 진행 중';
         badge.classList.add('live');
+
+        // 오픈 완료 상태(오픈 당일~다음날): 상태칩 · 버튼을 예약 모드로 전환
+        card.classList.add('is-open');
+        const status = card.querySelector('.po-status');
+        if (status) {
+          status.textContent = 'NOW OPEN';
+          status.className = 'po-status live';
+        }
+        const mini = card.querySelector('.po-open-mini');
+        if (mini) mini.innerHTML = '지금 바로 예약할 수 있어요';
+        const notifyBtn = card.querySelector('.po-notify');
+        if (notifyBtn) {
+          notifyBtn.classList.add('book');
+          notifyBtn.innerHTML = '지금 예약하기 <em>→</em>';
+        }
       }
     }
 
@@ -37,11 +110,15 @@
       card.addEventListener('click', () => { location.href = href; });
     }
 
-    // 알림 신청 (카드 이동과 분리)
+    // 알림 신청 (카드 이동과 분리) / 오픈된 스테이는 예약으로 이동
     const notify = card.querySelector('.po-notify');
     if (notify) {
       notify.addEventListener('click', (e) => {
         e.stopPropagation();
+        if (notify.classList.contains('book')) {
+          location.href = card.dataset.href || 'stay-detail.html';
+          return;
+        }
         if (notify.classList.contains('done')) return;
         notify.classList.add('done');
         notify.innerHTML = '신청 완료 <em>✓</em>';
