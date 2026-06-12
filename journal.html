@@ -55,7 +55,6 @@
         <img class="jf-bg" src="images/section_04_2.png" alt="" />
         <span class="pick">EDITOR'S PICK</span>
         <div class="jf-content">
-          <span class="cat">SPACE</span>
           <h2>숲이 보이는 창에 대하여</h2>
           <p>창은 단순히 풍경을 들이는 장치가 아닙니다. 어떤 높이에, 어떤 비율로 자리하느냐에 따라 공간의 호흡이 달라집니다. 숲을 마주한 창이 머무름을 어떻게 바꾸는지 이야기합니다.</p>
           <div class="jf-foot">
@@ -67,44 +66,48 @@
 
       <!-- 이달의 추천 (필터 영향 없음) -->
       <div class="best-band">
-      <div class="section-head">
-        <p class="band-eyebrow">MONTHLY PICK</p>
-        <h2 class="sec-title">이달의 추천</h2>
-      </div>
-      <div class="journal-grid journal-best">
-        <article class="journal-card fx-reveal" onclick="location.href='journal-detail.html'">
-          <div class="thumb"><img src="images/section_04_3.png" alt="" /></div>
-          <div class="jb-body">
-            <span class="cat">LOCAL</span>
-            <h3>제주의 바람을 담은 스테이</h3>
-            <p>바람이 머무는 섬, 제주. 그 결을 그대로 품은 공간들을 소개합니다.</p>
-            <p class="jb-extra"><b>EDITOR'S COMMENT</b>마당 너머로 바람 소리가 들리는 듯한, 이달 가장 사랑받은 기록이에요.</p>
-            <div class="date">
-              <div class="jb-rating" aria-label="에디터 평점 5점 만점에 4.8점">
-                <b>EDITOR'S RATING</b>
-                <em>4.8<i>/5.0</i></em>
-              </div>
-              <em class="read-arrow">&#10230;</em>
+        <div class="monthly-showcase fx-reveal" onclick="location.href='journal-detail.html'" style="cursor:pointer">
+          <article class="monthly-main" aria-label="이달의 추천 아티클">
+            <div class="monthly-copy">
+              <h2 class="sec-title">제주의 바람을<br />담은 스테이</h2>
+              <p>바람이 머무는 섬, 제주.<br />그 결을 그대로 품은 공간들을 소개합니다.</p>
             </div>
-          </div>
-        </article>
-        <article class="journal-card fx-reveal" onclick="location.href='journal-detail.html'">
-          <div class="thumb"><img src="images/section_04_4.png" alt="" /></div>
-          <div class="jb-body">
-            <span class="cat">GUIDE</span>
-            <h3>좋은 숙소를 고르는 기준</h3>
-            <p>수많은 선택지 속에서, 오래 기억에 남는 공간을 고르는 다섯 가지 기준.</p>
-            <p class="jb-extra"><b>MOST SAVED</b>체크리스트로 바로 써먹기 좋아 저장이 가장 많았던 가이드예요.</p>
-            <div class="date">
-              <div class="jb-rating" aria-label="에디터 평점 5점 만점에 4.6점">
-                <b>EDITOR'S RATING</b>
-                <em>4.6<i>/5.0</i></em>
+            <div class="monthly-slide-nav" aria-label="이달의 추천 슬라이드 이동">
+              <span class="monthly-nav-current">01</span>
+              <div class="monthly-nav-track">
+                <button type="button" class="active" aria-label="첫 번째 이미지 보기"><span></span></button>
+                <button type="button" aria-label="두 번째 이미지 보기"><span></span></button>
+                <button type="button" aria-label="세 번째 이미지 보기"><span></span></button>
+                <button type="button" aria-label="네 번째 이미지 보기"><span></span></button>
+                <button type="button" aria-label="다섯 번째 이미지 보기"><span></span></button>
               </div>
-              <em class="read-arrow">&#10230;</em>
+              <span class="monthly-nav-total">05</span>
             </div>
-          </div>
-        </article>
-      </div>
+          </article>
+          <aside class="monthly-editor" aria-label="에디터 추천 정보">
+            <h3>MONTHLY <span>PICK</span></h3>
+            <div class="monthly-slider" aria-label="이달의 추천 이미지 슬라이드">
+              <div class="monthly-slide-track">
+                <div class="monthly-editor-img"><img src="images/monthly_slide_01.png" alt="" /></div>
+                <div class="monthly-editor-img"><img src="images/monthly_slide_02.png" alt="" /></div>
+                <div class="monthly-editor-img"><img src="images/monthly_slide_03.png" alt="" /></div>
+                <div class="monthly-editor-img"><img src="images/monthly_slide_04.png" alt="" /></div>
+                <div class="monthly-editor-img"><img src="images/monthly_slide_05.png" alt="" /></div>
+              </div>
+            </div>
+            <div class="monthly-editor-info">
+              <div>
+                <b>COMMENT</b>
+                <p>마당 너머로 바람 소리가 들리는 듯한,<br />이달 가장 사랑받은 기록이에요.</p>
+              </div>
+              <div>
+                <b>RATING</b>
+                <p class="monthly-rating">4.8 <span>/ 5.0</span></p>
+              </div>
+            </div>
+            <em class="monthly-arrow read-arrow">&#10230;</em>
+          </aside>
+        </div>
       </div>
 
       <!-- 모든 아티클 (카테고리 필터) -->
@@ -209,6 +212,128 @@
           });
         });
       });
+    })();
+
+    // 이달의 추천 이미지 자동 슬라이드
+    (function () {
+      const slider = document.querySelector('.monthly-slider');
+      const track = slider ? slider.querySelector('.monthly-slide-track') : null;
+      const slides = track ? track.querySelectorAll('.monthly-editor-img') : [];
+      const navBtns = document.querySelectorAll('.monthly-slide-nav button');
+      const current = document.querySelector('.monthly-nav-current');
+      if (!slider || !track || slides.length < 2) return;
+
+      let index = 0;
+      let timer = null;
+      let visibleCount = 3;
+      let wheelLocked = false;
+      let slideLocked = false;
+      let transitionTimer = null;
+
+      const measure = () => {
+        slides.forEach((slide) => slide.classList.remove('is-hidden'));
+        const first = slides[0].getBoundingClientRect();
+        const second = slides[1].getBoundingClientRect();
+        const step = second.left - first.left || first.width;
+        const gap = Math.max(0, step - first.width);
+        visibleCount = Math.max(1, Math.min(3, Math.floor((slider.clientWidth + gap) / step)));
+      };
+
+      const setActive = () => {
+        navBtns.forEach((btn, i) => btn.classList.toggle('active', i === index));
+        if (current) current.textContent = String(index + 1).padStart(2, '0');
+      };
+
+      const render = () => {
+        const lastVisible = index + visibleCount;
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('is-hidden', i < index || i >= lastVisible);
+        });
+      };
+
+      const goTo = (nextIndex, options = {}) => {
+        const maxIndex = Math.max(0, slides.length - visibleCount);
+        const targetIndex = Math.min(Math.max(nextIndex, 0), maxIndex);
+        const shouldAnimate = options.animate !== false && targetIndex !== index;
+        const direction = targetIndex > index || (index === maxIndex && targetIndex === 0) ? 1 : -1;
+
+        clearTimeout(transitionTimer);
+        if (!shouldAnimate) {
+          index = targetIndex;
+          track.style.opacity = '1';
+          track.style.transform = 'none';
+          render();
+          setActive();
+          return;
+        }
+
+        if (slideLocked) return;
+        slideLocked = true;
+        track.style.opacity = '0.18';
+        track.style.transform = `translateX(${direction > 0 ? -18 : 18}px)`;
+
+        transitionTimer = setTimeout(() => {
+          index = targetIndex;
+          track.style.transitionDuration = '0s';
+          track.style.transform = `translateX(${direction > 0 ? 18 : -18}px)`;
+          render();
+          setActive();
+
+          requestAnimationFrame(() => {
+            track.style.transitionDuration = '';
+            track.style.opacity = '1';
+            track.style.transform = 'none';
+            transitionTimer = setTimeout(() => {
+              slideLocked = false;
+            }, 430);
+          });
+        }, 210);
+      };
+
+      const move = (direction = 1) => {
+        const maxIndex = Math.max(0, slides.length - visibleCount);
+        if (direction > 0) {
+          goTo(index >= maxIndex ? 0 : index + 1);
+        } else {
+          goTo(index <= 0 ? maxIndex : index - 1);
+        }
+      };
+
+      const play = () => {
+        clearInterval(timer);
+        timer = setInterval(move, 2600);
+      };
+
+      slider.addEventListener('mouseenter', () => clearInterval(timer));
+      slider.addEventListener('mouseleave', play);
+      slider.addEventListener('wheel', (event) => {
+        if (!event.shiftKey) return;
+        event.preventDefault();
+        event.stopPropagation();
+        if (wheelLocked) return;
+        wheelLocked = true;
+        clearInterval(timer);
+        move(event.deltaY > 0 || event.deltaX > 0 ? 1 : -1);
+        setTimeout(() => {
+          wheelLocked = false;
+        }, 520);
+        play();
+      }, { passive: false });
+      navBtns.forEach((btn, i) => {
+        btn.addEventListener('click', (event) => {
+          event.stopPropagation();
+          goTo(i);
+          play();
+        });
+      });
+      window.addEventListener('resize', () => {
+        measure();
+        goTo(0, { animate: false });
+        play();
+      });
+      measure();
+      goTo(0, { animate: false });
+      play();
     })();
   </script>
 </body>

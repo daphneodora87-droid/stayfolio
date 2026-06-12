@@ -95,11 +95,48 @@
   }
 
   const cards = document.querySelectorAll('.po-featured, .po-card');
+
+  const perksAction = document.querySelector('.po-perks-action');
+  if (perksAction) {
+    perksAction.addEventListener('click', () => {
+      if (perksAction.classList.contains('done')) return;
+      perksAction.classList.add('done');
+      perksAction.innerHTML = '전체 알림 신청 완료 <em>✓</em>';
+    });
+  }
+
   if (!cards.length) return;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const DAY = 86400000;
+
+  // 포트폴리오 모드: 오픈일이 지난 카드는 날짜를 내일로 자동 밀기
+  const DAY_NAMES = ['일', '월', '화', '수', '목', '금', '토'];
+  cards.forEach((card) => {
+    const openStr = card.dataset.open;
+    if (!openStr) return;
+    const open = new Date(openStr);
+    const openDay = new Date(open.getFullYear(), open.getMonth(), open.getDate());
+    const diff = Math.round((openDay - today) / DAY);
+    if (diff >= 0) return; // 아직 오픈 전이면 그대로 유지
+
+    const tomorrow = new Date(today.getTime() + DAY);
+    const hhmm = openStr.includes('T') ? openStr.split('T')[1] : '11:00';
+    const yy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const dd = String(tomorrow.getDate()).padStart(2, '0');
+    card.dataset.open = `${yy}-${mm}-${dd}T${hhmm}`;
+
+    const strong = card.querySelector('.po-open-mini strong');
+    if (strong) {
+      if (card.classList.contains('po-featured')) {
+        strong.textContent = `${yy}.${mm}.${dd} (${DAY_NAMES[tomorrow.getDay()]}) ${hhmm}`;
+      } else {
+        strong.textContent = `${yy}.${mm}.${dd} ${hhmm}`;
+      }
+    }
+  });
 
   cards.forEach((card) => {
     // D-day 뱃지 갱신
@@ -117,10 +154,6 @@
       } else if (diff === 0) {
         badge.textContent = 'D-DAY';
         badge.classList.add('live');
-      } else if (diff < -1) {
-        // 오픈 후 하루가 지난 스테이는 라인업에서 제외
-        card.style.display = 'none';
-        return;
       } else {
         badge.textContent = '예약 진행 중';
         badge.classList.add('live');

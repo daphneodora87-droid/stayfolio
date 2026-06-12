@@ -250,6 +250,10 @@ button.pq-tile.on { background: #f1e7d7; }
 .pagination a.active { background: #2c2723; color: #fff; }
 
 /* ---------- 저널(매거진) 리스트 ---------- */
+body.sub:has(.journal-feature) .sub-section > .inner {
+  padding-left: 0;
+  padding-right: 0;
+}
 /* 매거진 위계: 큰 하이라이트 2개(첫 줄) + 표준 카드 4개 */
 .journal-grid {
   display: grid;
@@ -305,108 +309,269 @@ button.pq-tile.on { background: #f1e7d7; }
 }
 .journal-card:nth-child(1) p,
 .journal-card:nth-child(2) p { font-size: 15px; -webkit-line-clamp: 3; max-width: 90%; }
-/* 이달의 추천 - 풀와이드 베이지 밴드 + 가로형 카드 2개 한 줄 */
+/* 이달의 추천 - 에디터 쇼케이스 */
 .best-band {
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding: 44px max(60px, calc(50vw - 640px)) 52px;
+  padding: 78px max(60px, calc(50vw - 700px)) 90px;
   background: #f7f3ef;
   margin-bottom: 90px;
 }
-.best-band .band-eyebrow {
-  margin-bottom: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.26em;
-  color: #8a6f55;
-}
-.journal-grid.journal-best {
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-.journal-grid.journal-best .journal-card,
-.journal-grid.journal-best .journal-card:nth-child(1),
-.journal-grid.journal-best .journal-card:nth-child(2) {
-  grid-column: auto;
+.monthly-showcase {
   display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 32px;
-  align-items: center;
-  padding: 28px 32px 28px 28px;
-  background: #fff;
-  border-radius: 20px;
-  transition: box-shadow 0.3s, transform 0.3s;
+  grid-template-columns: minmax(520px, 710px) minmax(0, 640px);
+  gap: 50px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
 }
-.journal-grid.journal-best .journal-card:hover {
+.monthly-main {
+  position: relative;
+  min-height: 410px;
+  padding: 64px 58px;
+  border-radius: 18px;
+  background: #8a6f55;
+  overflow: visible;
+  color: #fff;
+  box-shadow: 0 20px 44px rgba(94, 72, 52, 0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.monthly-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: url("../images/cloud.png") center bottom / cover no-repeat;
+  opacity: 0.72;
+  pointer-events: none;
+}
+.monthly-showcase:hover .monthly-main {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(120, 100, 85, 0.12);
+  box-shadow: 0 26px 54px rgba(94, 72, 52, 0.16);
 }
-.journal-grid.journal-best .journal-card:nth-child(1) .thumb,
-.journal-grid.journal-best .journal-card:nth-child(2) .thumb { height: 290px; border-radius: 14px; }
-.journal-grid.journal-best .jb-body { min-width: 0; }
-.journal-grid.journal-best .jb-body .date { margin-top: 22px; }
-.journal-grid.journal-best .journal-card .cat { margin-top: 0; }
-.journal-grid.journal-best .journal-card:nth-child(1) h3,
-.journal-grid.journal-best .journal-card:nth-child(2) h3 { margin-top: 14px; font-size: 21px; }
-.journal-grid.journal-best .journal-card:nth-child(1) p,
-.journal-grid.journal-best .journal-card:nth-child(2) p { max-width: none; font-size: 14px; -webkit-line-clamp: 2; margin-top: 12px; }
-/* 이달의 추천 전용 추가 문구 - 인용구 스타일 */
-.journal-grid.journal-best .jb-extra {
-  display: block;
-  margin-top: 22px;
-  padding: 2px 0 2px 15px;
-  border-left: 2px solid #8a6f55;
-  background: none;
-  border-radius: 0;
-  font-size: 13.5px;
+.monthly-copy {
+  position: absolute;
+  left: 58px;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  max-width: 420px;
+}
+.monthly-copy .band-eyebrow {
+  margin-bottom: 28px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  color: rgba(255, 255, 255, 0.72);
+}
+.monthly-copy .sec-title {
+  font-size: clamp(34px, 3vw, 46px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #fff;
+}
+.monthly-copy p:not(.band-eyebrow) {
+  margin-top: 26px;
+  font-size: 16px;
+  font-weight: 300;
   line-height: 1.7;
-  color: #756d64;
-  font-style: italic;
-  -webkit-line-clamp: unset;
+  color: rgba(255, 255, 255, 0.82);
   word-break: keep-all;
 }
-.journal-grid.journal-best .jb-extra b {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 10px;
-  font-weight: 700;
-  font-style: normal;
-  letter-spacing: 0.16em;
-  color: #8a6f55;
-}
-/* 에디터 평점 - 숫자만 한 줄 */
-.journal-grid.journal-best .jb-rating {
+.monthly-slide-nav {
+  position: absolute;
+  right: 34px;
+  bottom: 70px;
+  z-index: 3;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.76);
 }
-.journal-grid.journal-best .jb-rating b {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  color: #8a6f55;
-}
-.journal-grid.journal-best .jb-rating em {
-  font-style: normal;
-  font-size: 14.5px;
+.monthly-nav-current,
+.monthly-nav-total {
+  min-width: 18px;
+  font-size: 11px;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+.monthly-nav-total {
+  color: rgba(255, 255, 255, 0.42);
+}
+.monthly-nav-track {
+  display: flex;
+  align-items: center;
+  width: 112px;
+  height: 18px;
+}
+.monthly-slide-nav button {
+  position: relative;
+  flex: 1;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.monthly-slide-nav button span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  display: block;
+  width: 100%;
+  height: 1px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-50%);
+  transition: height 0.25s ease, background 0.25s ease, transform 0.25s ease;
+}
+.monthly-slide-nav button.active span {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-50%) scaleX(1.04);
+}
+.monthly-slide-nav button:hover span {
+  background: rgba(255, 255, 255, 0.72);
+}
+.monthly-editor-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+.monthly-showcase:hover .monthly-editor-img img {
+  transform: scale(1.06);
+}
+.monthly-editor h3 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   color: #2c2723;
 }
-.journal-grid.journal-best .jb-rating em i {
-  font-style: normal;
-  font-size: 11px;
+.monthly-editor h3 span {
+  margin-left: 10px;
+  color: #8a6f55;
+}
+.monthly-editor {
+  position: relative;
+  padding-bottom: 34px;
+}
+.monthly-slider {
+  --monthly-slide-width: clamp(214px, 19.4vw, 308px);
+  --monthly-slide-gap: 24px;
+  width: calc(100% + var(--monthly-slide-width) + var(--monthly-slide-gap));
+  gap: 34px;
+  margin-top: 34px;
+  margin-left: calc((var(--monthly-slide-width) + var(--monthly-slide-gap)) * -1);
+  padding: 0 0 14px;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+.monthly-slide-track {
+  display: flex;
+  gap: var(--monthly-slide-gap);
+  align-items: stretch;
+  transition: opacity 0.28s ease, transform 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.monthly-editor-img {
+  flex: 0 0 var(--monthly-slide-width);
+  aspect-ratio: 1.28 / 1;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #eee7df;
+  box-shadow: 0 6px 14px rgba(58, 43, 31, 0.045);
+}
+.monthly-editor-img:first-child {
+  box-shadow: 0 8px 18px rgba(58, 43, 31, 0.08);
+}
+.monthly-editor-img.is-hidden {
+  display: none;
+}
+.monthly-editor-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+  margin-top: 14px;
+}
+.monthly-editor-info b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #111;
+}
+.monthly-editor-info p {
+  font-size: 14px;
   font-weight: 400;
-  color: #aaa;
-  margin-left: 2px;
+  line-height: 1.75;
+  color: #5f5a55;
+  word-break: keep-all;
+}
+.monthly-editor-info .monthly-rating {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: #4b4641;
+}
+.monthly-editor-info .monthly-rating span {
+  margin-left: 4px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #77706a;
+}
+.monthly-arrow {
+  position: absolute;
+  right: 0;
+  bottom: 42px;
+  font-style: normal;
+}
+.monthly-showcase,
+.monthly-main,
+.monthly-editor-img {
+  transition: box-shadow 0.3s, transform 0.3s;
 }
 @media (max-width: 1100px) {
-  .journal-grid.journal-best { grid-template-columns: 1fr; }
+  .monthly-showcase { grid-template-columns: 1fr; gap: 54px; }
+  .monthly-main { max-width: 760px; }
+  .monthly-slider {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 @media (max-width: 680px) {
-  .journal-grid.journal-best .journal-card,
-  .journal-grid.journal-best .journal-card:nth-child(1),
-  .journal-grid.journal-best .journal-card:nth-child(2) { grid-template-columns: 1fr; gap: 0; }
-  .journal-grid.journal-best .journal-card .cat { margin-top: 20px; }
+  body.sub:has(.journal-feature) .sub-section > .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .best-band { padding: 52px 24px 64px; }
+  .monthly-main {
+    min-height: 470px;
+    padding: 42px 30px;
+    overflow: hidden;
+  }
+  .monthly-copy {
+    left: 30px;
+    right: 30px;
+    max-width: none;
+  }
+  .monthly-slide-nav {
+    right: 28px;
+    bottom: 34px;
+  }
+  .monthly-nav-track { width: 92px; }
+  .monthly-slider {
+    --monthly-slide-width: min(76vw, 280px);
+    width: 100%;
+    max-width: calc(100vw - 48px);
+    margin-left: 0;
+  }
+  .monthly-editor-info { grid-template-columns: 1fr; gap: 22px; }
+  .monthly-editor h3 { font-size: 24px; }
+  .monthly-arrow { right: 4px; }
 }
 /* 모든 아티클 - 균등 4-up (필터 시 크기 통일) */
 .journal-grid.uniform .journal-card:nth-child(1),
@@ -464,7 +629,7 @@ body.sub { overflow-x: hidden; }
 .journal-feature .pick {
   position: absolute;
   top: 30px;
-  right: max(52px, calc(50% - 700px + 52px)); /* 우측 콘텐츠 라인과 정렬 */
+  right: max(24px, calc(50% - 700px));
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -487,7 +652,7 @@ body.sub { overflow-x: hidden; }
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 48px 52px 42px;
+  padding: 48px 0 42px;
 }
 .journal-feature .cat { color: #e7d8c6; font-weight: 600; letter-spacing: 0.16em; font-size: 13px; }
 .journal-feature h2 {
@@ -1552,13 +1717,18 @@ body.sub { overflow-x: hidden; }
 
 /* ---------- 사전예약(pre-order) ---------- */
 /* ===================== PRE-ORDER (에디토리얼) ===================== */
+.preorder-page .preorder-section > .inner,
+.preorder-page #footer > .inner {
+  padding-left: 0;
+  padding-right: 0;
+}
 .preorder-section { background: #faf8f5; }
 /* 상단 배경 밴드 (브레드크럼 + 헤더 전체) */
 .po-hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-top: -150px;
-  padding: 150px max(60px, calc(50vw - 640px)) 86px;
+  padding: 150px max(24px, calc(50vw - 700px)) 86px;
   background:
     linear-gradient(180deg, rgba(24, 19, 15, 0.88), rgba(24, 19, 15, 0.74) 55%, rgba(24, 19, 15, 0.92)),
     url('../images/section_02_5.png') center / cover no-repeat;
@@ -1713,7 +1883,7 @@ body.sub { overflow-x: hidden; }
 .po-dday.live { background: #e3f0e8; color: #3e7d5a; }
 .po-notify.book { background: #3e7d5a; border-color: #3e7d5a; }
 .po-notify.book:hover { background: #346a4c; }
-.po-dot.live { background: #3e7d5a; box-shadow: 0 0 0 4px rgba(62, 125, 90, 0.14); }
+.po-dot.live { background: #c9a87c; box-shadow: 0 0 0 4px rgba(201, 168, 124, 0.16); }
 
 /* 라인업 래퍼: 왼쪽 고정 카드 + 오른쪽 슬라이더 */
 .po-lineup {
@@ -1721,6 +1891,9 @@ body.sub { overflow-x: hidden; }
   align-items: stretch;
   gap: 38px;
   margin-right: calc(50% - 50vw);
+}
+.preorder-page .po-lineup {
+  margin-right: 0;
 }
 /* 피처드 카드 - 슬라이더 왼쪽 고정 (스크롤 영향 없음) */
 .po-featured {
@@ -2090,6 +2263,40 @@ body.sub { overflow-x: hidden; }
   font-weight: 700;
   color: #8a6f55;
 }
+.po-perks-action {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 214px;
+  min-height: 46px;
+  padding: 0 24px;
+  border: 1px solid #2c2723;
+  border-radius: 999px;
+  background: #2c2723;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: background 0.28s, border-color 0.28s, color 0.28s, transform 0.28s;
+}
+.po-perks-action em {
+  font-style: normal;
+  font-size: 15px;
+  transition: transform 0.28s;
+}
+.po-perks-action:hover {
+  transform: translateY(-2px);
+  background: #8a6f55;
+  border-color: #8a6f55;
+}
+.po-perks-action:hover em { transform: translateX(4px); }
+.po-perks-action.done {
+  background: #c9a87c;
+  border-color: #c9a87c;
+  color: #2c2723;
+}
 .po-nav button:hover b { color: #8a6f55; }
 .po-nav button:hover span { color: #2c2723; }
 .po-nav button.active b { color: #2c2723; }
@@ -2163,9 +2370,16 @@ body.sub { overflow-x: hidden; }
   .journal-grid.uniform .journal-card:nth-child(2) .thumb { height: 230px; }
 }
 @media (max-width: 880px) {
+  .preorder-page .preorder-section > .inner,
+  .preorder-page #footer > .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .po-head { grid-template-columns: 1fr; gap: 28px; align-items: start; }
   .po-head-title { font-size: 38px; }
   .po-head-stats li { padding: 0 16px; }
+  .po-perks { gap: 24px; padding: 26px 28px; }
+  .po-perks-action { margin-left: 0; }
   .po-featured-body { padding: 200px 22px 22px; }
   .po-month em { font-size: 88px; }
 }
@@ -2185,6 +2399,11 @@ body.sub { overflow-x: hidden; }
   .journal-feature .jf-foot { flex-wrap: wrap; }
   .banner-title { font-size: 34px; }
   .po-head-title { font-size: 32px; }
+  .po-perks { align-items: stretch; }
+  .po-perks .pk-label { width: 100%; padding-right: 0; }
+  .po-perks .pk-label::after { display: none; }
+  .po-perks ul { gap: 14px; }
+  .po-perks-action { width: 100%; }
   .detail-gallery { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; height: auto; border-radius: 14px; }
   .detail-gallery .g-main { grid-column: 1 / 3; grid-row: auto; height: 260px; }
   .detail-gallery .g-item:not(.g-main) { height: 130px; }
@@ -2283,6 +2502,12 @@ body.sub { overflow-x: hidden; }
 }
 
 /* ---------- ABOUT ---------- */
+.about-page .sub-section > .inner,
+.about-page .ab-gallery > .inner,
+.about-page #footer > .inner {
+  padding-left: 0;
+  padding-right: 0;
+}
 /* 센터드 스테이트먼트 헤더 */
 .ab-head { text-align: center; padding: 30px 0 0; margin-bottom: 90px; }
 .ab-eyebrow {
@@ -2519,6 +2744,12 @@ body.sub { overflow-x: hidden; }
 .ab-gallery .fx-reveal:nth-child(7) { transition-delay: 0.48s; }
 .ab-gallery .fx-reveal:nth-child(8) { transition-delay: 0.56s; }
 @media (max-width: 880px) {
+  .about-page .sub-section > .inner,
+  .about-page .ab-gallery > .inner,
+  .about-page #footer > .inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
   .ab-gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .ab-g-item:nth-child(n) { grid-column: span 1; height: 220px; margin-top: 0; }
   .ab-g-deco { display: none; }
@@ -2785,5 +3016,133 @@ body.sub { overflow-x: hidden; }
 @media (max-width: 880px) {
   .ab-values { grid-template-columns: 1fr; }
   .ab-statement { height: 340px; }
-  .ab-statement .quote { font-size: 25px; }
+  .ab-statement .quote { font-size: 18px; }
+}
+
+/* ================================================================
+   프로모션 카드 — 날짜 강조 리디자인 (pc-date-block)
+   ================================================================ */
+
+/* 기존 .foot 을 블록으로 전환 */
+.promo-card .foot {
+  display: block;
+  margin-top: 28px;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* 날짜 블록 컨테이너 */
+.pc-date-block {
+  padding: 18px 20px 16px;
+  background: #faf7f4;
+  border-radius: 14px;
+  border: 1px solid #ede6de;
+}
+
+/* 상단: FROM ── 진행바 ── UNTIL */
+.pc-date-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pc-date-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 54px;
+}
+
+/* 라벨 (FROM / UNTIL) */
+.dc-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #b3a290;
+  text-transform: uppercase;
+}
+
+/* 큰 날짜 숫자 */
+.dc-day {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1;
+  color: #2c2723;
+  letter-spacing: -0.03em;
+  margin: 5px 0 4px;
+}
+
+/* 월 + 연도 */
+.dc-mon {
+  font-size: 10px;
+  color: #9a8e86;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* 중간 진행바 영역 */
+.pc-date-track {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ================================================================
+   프로모션 카드 — 2열 그리드 레이아웃
+   ================================================================ */
+.promo-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* 세로 카드로 전환 */
+.promo-card {
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.promo-card .thumb {
+  height: 220px;
+}
+
+.promo-card .body {
+  padding: 26px 28px 24px;
+}
+
+.promo-card h3 {
+  font-size: 20px;
+}
+
+.promo-card p {
+  font-size: 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 날짜 블록 축소 */
+.promo-card .dc-day {
+  font-size: 34px;
+}
+
+.promo-card .pc-date-block {
+  padding: 14px 16px 12px;
+}
+
+.promo-card .remain-num {
+  font-size: 20px;
+}
+
+/* 모바일: 1열 */
+@media (max-width: 720px) {
+  .promo-list {
+    grid-template-columns: 1fr;
+  }
 }
