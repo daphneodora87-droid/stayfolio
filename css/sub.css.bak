@@ -1585,7 +1585,7 @@ body.sub { overflow-x: hidden; }
 .promo-feature .body { position: relative; z-index: 1; padding: 54px; max-width: 600px; }
 .promo-feature .tag { display: inline-block; padding: 7px 16px; border: 1px solid rgba(255,255,255,0.6); border-radius: 50px; font-size: 12px; letter-spacing: 0.08em; margin-bottom: 18px; }
 .promo-feature h2 { font-size: 40px; font-weight: 600; line-height: 1.3; }
-.promo-feature p { margin-top: 16px; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; word-break: keep-all; }
+.promo-feature p { margin-top: 16px; font-size: 16px; color: rgba(255,255,255,0.85); line-height: 1.7; }
 .promo-feature .cta { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; padding: 13px 28px; background: #fff; color: #2c2723; border-radius: 50px; font-size: 14px; font-weight: 500; transition: gap 0.25s, background 0.25s; }
 .promo-feature .cta:hover { gap: 14px; background: #efe6dd; }
 
@@ -1729,19 +1729,6 @@ body.sub { overflow-x: hidden; }
 .promo-notice ul { list-style: none; }
 .promo-notice li { position: relative; padding-left: 16px; font-size: 14px; color: #777; line-height: 1.95; }
 .promo-notice li::before { content: "·"; position: absolute; left: 4px; color: #8a6f55; }
-
-/* 프로모션 상세 - 유의사항 카드 (전용, .promo-notice 밴드와 분리) */
-.pd-notice {
-  margin-top: 48px;
-  padding: 28px 30px 26px;
-  background: #f7f3ef;
-  border: 1px solid #ece5dd;
-  border-radius: 16px;
-}
-.pd-notice h4 { font-size: 16px; font-weight: 600; color: #2c2723; margin-bottom: 14px; }
-.pd-notice ul { list-style: none; }
-.pd-notice li { position: relative; padding-left: 16px; font-size: 14px; color: #777; line-height: 1.95; }
-.pd-notice li::before { content: "·"; position: absolute; left: 4px; color: #8a6f55; }
 
 /* ---------- 사전예약(pre-order) ---------- */
 /* ===================== PRE-ORDER (에디토리얼) ===================== */
@@ -3251,303 +3238,83 @@ body.sub { overflow-x: hidden; }
   }
 }
 
-
 /* ================================================================
-   프로모션 — 혜택 목록 섹션 헤더 (배너/목록 영역 구분)
-   ================================================================ */
-.promo-list-head {
-  margin-top: 72px;
-  margin-bottom: 50px;
-  text-align: center;
-}
-.plh-badge {
-  display: inline-block;
-  margin-bottom: 18px;
-  padding: 7px 17px;
-  border-radius: 50px;
-  background: #8a6f55;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-}
-.plh-title {
-  font-size: 38px;
-  font-weight: 300;
-  line-height: 1.25;
-  letter-spacing: -0.01em;
-  color: #2c2723;
-}
-.plh-title strong { font-weight: 600; color: #8a6f55; }
-.plh-desc {
-  margin-top: 14px;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #9a8e84;
-  word-break: keep-all;
-}
-.plh-stats {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  margin-top: 22px;
-  font-size: 13.5px;
-  color: #6f655c;
-}
-.plh-stats b { color: #c1654b; font-weight: 700; font-size: 15px; margin-right: 2px; }
-.plh-stats i { display: block; width: 1px; height: 13px; background: #d9cec3; }
-@media (max-width: 880px) {
-  .promo-list-head { margin-top: 52px; margin-bottom: 40px; }
-  .plh-title { font-size: 28px; }
-  .plh-desc { font-size: 14px; }
-}
-
-/* ================================================================
-   프로모션 — 메이슨리 콜라주 (주컬러 #8a6f55 / 섹션1 화살표)
+   프로모션 — 콜라주(컬러 타일) 그리드  [참고 레퍼런스 적용]
    ================================================================ */
 .promo-collage {
-  display: block;
-  column-count: 3;
-  column-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
 }
 .promo-collage .promo-card {
-  display: block;
-  width: 100%;
-  margin: 0 0 24px;
-  break-inside: avoid;
-  -webkit-column-break-inside: avoid;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: none;
+  gap: 0;
   border: none;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  position: relative;
-  background: #8a6f55;
+  background: #c1654b;
   box-shadow: none;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 .promo-collage .promo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 22px 46px rgba(120, 100, 85, 0.18);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(120, 100, 85, 0.18);
 }
-
-/* ---------- SOLID 컬러 타일 ---------- */
-.promo-collage .pc-solid {
-  display: flex;
-  flex-direction: column;
-  padding: 28px 26px 22px;
-  min-height: 200px;
+/* 사진 영역 */
+.promo-collage .promo-card .thumb {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
 }
-.promo-collage .pc-solid h3 {
-  margin: 16px 0 16px;
-  font-size: 25px;
-  font-weight: 500;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-}
-.promo-collage .pc-solid p {
-  margin: 0 0 20px;
-  font-size: 13.5px;
-  line-height: 1.7;
-}
-.promo-collage .pc-solid .pc-foot {
-  margin-top: auto;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-}
-.promo-collage .pc-cream .pc-foot { border-top-color: rgba(60, 56, 51, 0.12); }
-.promo-collage .pc-cta { min-height: 172px; }
-
-/* 솔리드 타일 eyebrow (라인 + 라벨) */
-.pc-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  align-self: flex-start;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-}
-.pc-eyebrow i {
-  display: block;
-  width: 22px;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.55;
-}
-
-/* ---------- PHOTO 타일 ---------- */
-.promo-collage .pc-photo { min-height: 290px; }
-.promo-collage .pc-photo.pc-tall { min-height: 352px; }
-.promo-collage .pc-photo .pc-img {
-  position: absolute;
-  inset: 0;
+.promo-collage .promo-card .thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.7s ease;
 }
-.promo-collage .pc-photo:hover .pc-img { transform: scale(1.06); }
-.promo-collage .pc-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(28, 23, 20, 0.86) 0%, rgba(28, 23, 20, 0.22) 50%, rgba(28, 23, 20, 0.02) 100%);
-}
-.promo-collage .pc-photo .pc-cap {
-  position: relative;
-  z-index: 1;
+.promo-collage .promo-card:hover .thumb img { transform: scale(1.06); }
+/* 컬러 본문 */
+.promo-collage .promo-card .body {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-  min-height: inherit;
-  padding: 22px 22px 20px;
-  color: #fff;
+  flex: 1;
+  padding: 26px 26px 24px;
 }
-.promo-collage .pc-photo h3 {
+.promo-collage .promo-card h3 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.34;
+  letter-spacing: -0.01em;
+}
+.promo-collage .promo-card p {
   margin: 12px 0 0;
-  font-size: 23px;
-  font-weight: 500;
-  line-height: 1.3;
-  color: #fff;
+  font-size: 13.5px;
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.promo-collage .pc-photo .pc-foot { margin-top: 15px; padding-top: 0; }
-
-/* ---------- 태그 (사진 타일 pill) ---------- */
-.pc-tag {
-  align-self: flex-start;
+/* 이미지 위 칩 */
+.pc-chip {
+  position: absolute;
+  top: 14px;
+  left: 14px;
   padding: 6px 13px;
   border-radius: 50px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
+  color: #8a6f55;
 }
-.pc-tag--glass {
-  background: rgba(255, 255, 255, 0.22);
-  color: #fff;
-  backdrop-filter: blur(4px);
-}
-
-/* ---------- 푸터 + 글리프 화살표 (메인 섹션1 스타일) ---------- */
-.promo-collage .pc-foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-.pc-period {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  font-family: 'A2z', sans-serif;
-}
-.pc-period .pc-dd b { font-weight: 800; }
-.pc-arrow {
-  flex: none;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  transition: transform 0.3s ease;
-}
-.promo-collage .promo-card:hover .pc-arrow { transform: translateX(6px); }
-
-/* ---------- 색상 팔레트 (주컬러 #8a6f55 톤) ---------- */
-.promo-collage .pc-main { background: #8a6f55; }
-.pc-main h3, .pc-main .pc-arrow, .pc-main .pc-eyebrow { color: #fff; }
-.pc-main p { color: rgba(255, 255, 255, 0.85); }
-.pc-main .pc-period { color: rgba(255, 255, 255, 0.78); }
-
-.promo-collage .pc-dark { background: #3d3833; }
-.pc-dark h3, .pc-dark .pc-arrow, .pc-dark .pc-eyebrow { color: #f6f1ec; }
-.pc-dark p { color: rgba(246, 241, 236, 0.7); }
-.pc-dark .pc-period { color: rgba(246, 241, 236, 0.6); }
-
-.promo-collage .pc-light { background: #a98e74; }
-.pc-light h3, .pc-light .pc-arrow, .pc-light .pc-eyebrow { color: #fff; }
-.pc-light p { color: rgba(255, 255, 255, 0.88); }
-.pc-light .pc-period { color: rgba(255, 255, 255, 0.82); }
-
-.promo-collage .pc-cream { background: #f4ece3; }
-.pc-cream h3, .pc-cream .pc-arrow, .pc-cream .pc-eyebrow { color: #3d3833; }
-.pc-cream p { color: #7a6f66; }
-.pc-cream .pc-period { color: #a98e74; }
-
-.pc-photo .pc-period { color: rgba(255, 255, 255, 0.82); }
-.pc-photo .pc-arrow { color: #fff; }
-
-/* 흰 배경 + 금색 라인 박스 */
-.promo-collage .pc-outline {
-  background: #fff;
-  border: 1.5px solid #c9a87c;
-}
-.promo-collage .pc-outline:hover { border-color: #b8924e; box-shadow: 0 22px 46px rgba(178, 146, 78, 0.16); }
-.pc-outline h3 { color: #2c2723; }
-.pc-outline p { color: #7a6f66; }
-.pc-outline .pc-eyebrow,
-.pc-outline .pc-arrow { color: #b0853f; }
-.pc-outline .pc-period { color: #b3a48c; }
-.promo-collage .pc-outline .pc-foot { border-top-color: rgba(201, 168, 124, 0.45); }
-
-/* 다크 스테이트먼트 카드 (다른 디자인) */
-.promo-collage .pc-statement {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 32px 28px;
-  min-height: 248px;
-  background: #2c2723;
-}
-.promo-collage .pc-statement .st-accent {
-  display: block;
-  width: 30px;
-  height: 2px;
-  background: #c9a87c;
-  margin-bottom: 20px;
-}
-.promo-collage .pc-statement .st-ico {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid rgba(201, 168, 124, 0.5);
-  color: #c9a87c;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-.promo-collage .pc-statement h3 {
-  margin: 0;
-  font-size: 27px;
-  font-weight: 500;
-  line-height: 1.34;
-  letter-spacing: -0.01em;
-  color: #fdf8f3;
-}
-.promo-collage .pc-statement p {
-  margin: 14px 0 0;
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: rgba(245, 235, 228, 0.58);
-}
-.promo-collage .pc-statement .pc-foot {
-  margin-top: 24px;
-  padding-top: 0;
-  border-top: none;
-}
-.promo-collage .pc-statement .pc-period { color: rgba(245, 235, 228, 0.48); }
-.promo-collage .pc-statement .pc-arrow { color: #c9a87c; }
-
-/* ---------- 종료 ---------- */
-.promo-collage .promo-card.ended { cursor: default; }
-.promo-collage .promo-card.ended:hover { transform: none; box-shadow: none; }
-.promo-collage .pc-photo.ended .pc-img { filter: grayscale(1); opacity: 0.9; }
-.promo-collage .pc-photo.ended:hover .pc-img { transform: none; }
-.promo-collage .pc-photo.ended .ended-chip { position: static; align-self: flex-start; margin-bottom: 12px; }
-
-/* ---------- 반응형 ---------- */
-@media (max-width: 980px) {
-  .promo-collage { column-count: 2; }
-}
-@media (max-width: 600px) {
-  .promo-collage { column-count: 1; }
-}
+.pc-gift {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: in
