@@ -57,28 +57,32 @@
         <li><button type="button" data-tab="ended">종료</button></li>
       </ul>
 
-      <!-- 피처드 프로모션 -->
-      <article class="promo-feature fx-reveal" onclick="location.href='promotion-detail.html?promo=feature'" style="cursor:pointer">
-        <img src="images/section_01_2.png" alt="" />
-        <div class="body">
-          <span class="tag">EARLY SUMMER · 15% OFF</span>
-          <h2>초여름, 오션뷰 스테이<br />특별가로 만나기</h2>
-          <p>바다가 가장 빛나는 계절. 동해와 남해의 오션뷰 스테이를 15% 할인된 가격에. 평일 2박 이상 예약 시 추가 혜택이 제공됩니다.</p>
-          <a href="promotion-detail.html?promo=feature" class="cta">자세히 보기 →</a>
+      <!-- 피처드 헤더 배너: 도형 갤러리 + 이달의 혜택 헤더 -->
+      <article class="promo-feature fx-reveal">
+        <div class="pf-gallery" aria-hidden="true">
+          <figure class="pf-tile pf-tile--cream pf-r-coupon"><img src="images/promo_coupon.png" alt="" /></figure>
+          <figure class="pf-tile pf-tile--gray pf-r-gift"><img src="images/promo_gift.png" alt="" /></figure>
+          <figure class="pf-tile pf-tile--gray pf-r-card"><img src="images/promo_card.png" alt="" /></figure>
+          <figure class="pf-tile pf-tile--cream pf-r-key"><img src="images/promo_key.png" alt="" /></figure>
+        </div>
+        <div class="pf-body">
+          <div class="pf-copy">
+            <span class="plh-badge">SPECIAL OFFERS</span>
+            <h2 class="plh-title">이달의 혜택을 <strong>한자리에</strong></h2>
+            <p class="plh-desc">스테이폴리오가 엄선한 이번 달 프로모션을 카테고리별로 살펴보세요.</p>
+          </div>
+          <div class="plh-stats">
+            <div class="plh-stat">
+              <b id="promoLiveCount">—</b>
+              <span>진행 중</span>
+            </div>
+            <div class="plh-stat">
+              <b>5</b>
+              <span>혜택 카테고리</span>
+            </div>
+          </div>
         </div>
       </article>
-
-      <!-- 혜택 목록 섹션 헤더 -->
-      <div class="promo-list-head">
-        <span class="plh-badge">SPECIAL OFFERS</span>
-        <h2 class="plh-title">이달의 혜택을 <strong>한자리에</strong></h2>
-        <p class="plh-desc">스테이폴리오가 엄선한 이번 달 프로모션을 카테고리별로 살펴보세요.</p>
-        <div class="plh-stats">
-          <span><b id="promoLiveCount">—</b>개 진행 중</span>
-          <i></i>
-          <span>5개 혜택 카테고리</span>
-        </div>
-      </div>
 
       <!-- 혜택 유형 카테고리 -->
       <ul class="filter-bar promo-cat-bar" style="margin-bottom:24px">
